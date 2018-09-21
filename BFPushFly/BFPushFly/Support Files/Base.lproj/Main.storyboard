@@ -764,7 +764,7 @@
                                                                                     <rect key="frame" x="8" y="3" width="222" height="17"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Desc" id="eoL-FZ-gaT">
-                                                                                        <font key="font" metaFont="system" size="11"/>
+                                                                                        <font key="font" metaFont="smallSystem"/>
                                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                     </textFieldCell>
@@ -1744,7 +1744,7 @@
                                     <button verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EQM-Kh-iBI">
                                         <rect key="frame" x="569" y="52" width="120" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="check" title="沙   盒" bezelStyle="regularSquare" imagePosition="left" inset="2" id="CeT-Xj-zy7">
+                                        <buttonCell key="cell" type="check" title="沙   盒" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="CeT-Xj-zy7">
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" size="17" name=".PingFangSC-Regular"/>
                                         </buttonCell>

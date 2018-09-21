@@ -23,7 +23,7 @@
 @interface BFPushViewController() <NWHubDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate>
 {
     NWHub *_hub;
-    NSDictionary *_config;
+    NSDictionary *_tokenList;
     NSArray *_certificateIdentityPairs;
     NSUInteger _lastSelectedIndex;
     NWCertificateRef _selectedCertificate;\
@@ -63,7 +63,7 @@
     [self updateCertificatePopup];
 
     
-    NSString *payload = [_config valueForKey:@"payload"];
+    NSString *payload = [_tokenList valueForKey:@"payload"];
     _payloadField.string = payload.length ? payload : @"";
     _payloadField.font = [NSFont fontWithName:@"Monaco" size:10];
     _payloadField.enabledTextCheckingTypes = 0;
@@ -77,7 +77,7 @@
 
 - (void)firstLoadData
 {
-    [self loadConfig];
+    [self loadTokenList];
 
     _selecteRow = 0;
     [self loadTemplateFiles];
@@ -208,11 +208,6 @@
     [self connectWithCertificateAtIndex:_certificatePopup.indexOfSelectedItem];
 }
 
-- (IBAction)tokenSelected:(NSComboBox *)sender
-{
-   [self updateTokenCombo];
-}
-
 - (void)textDidChange:(NSNotification *)notification
 {
     if (notification.object == _payloadField) [self updatePayloadCounter];
@@ -227,8 +222,7 @@
 {
     [self push];
     [self upPayloadTextIndex];
-    [self saveConfig];
-    [self updateTokenCombo];
+    [self saveTokenList];
 }
 
 - (IBAction)reconnect:(NSButton *)sender
@@ -260,6 +254,97 @@
 - (IBAction)readFeedback:(id)sender {
     [self feedback];
 }
+
+#pragma mark - Token
+
+- (IBAction)tokenSelected:(NSComboBox *)sender
+{
+    [self selectedTokenAndUpdateCombo];
+}
+
+- (void)selectedTokenAndUpdateCombo
+{
+    NSMutableArray *tokens = [self tokensWithCertificate:_selectedCertificate create:YES];
+    if (tokens != nil && [tokens containsObject:_tokenCombo.stringValue]) {
+        //包含当前token
+        [self updateTokenCombo];
+    }
+}
+
+- (NSMutableArray *)tokensWithCertificate:(NWCertificateRef)certificate create:(BOOL)create
+{
+    NSString *identifier = [self identifierWithCertificate:certificate];
+    if (!identifier) return nil;
+    NSArray *result = _tokenList[identifier];
+    return (NSMutableArray *)result;
+}
+
+- (void)updateTokenCombo
+{
+    [_tokenCombo removeAllItems];
+    NSArray *tokens = [self tokensWithCertificate:_selectedCertificate create:NO];
+    if (tokens.count) [_tokenCombo addItemsWithObjectValues:tokens.reverseObjectEnumerator.allObjects];
+}
+
+- (void)loadSelectedToken
+{
+    _tokenCombo.stringValue = [[self tokensWithCertificate:_selectedCertificate create:YES] lastObject] ?: @"";
+    // _tokenCombo.stringValue = @"552fff0a65b154eb209e9dc91201025da1a4a413dd2ad6d3b51e9b33b90c977a my iphone";
+}
+
+- (void)loadTokenList
+{
+    _tokenList = [[NSUserDefaults standardUserDefaults] objectForKey:BFInputTokenList];
+    if (_tokenList == nil) {
+        _tokenList = [NSDictionary dictionary];
+    }
+    NWLogInfo(@"Loaded config from %@", _tokenList);
+}
+
+- (void)saveTokenList
+{
+    if (_tokenCombo.stringValue == nil || _tokenCombo.stringValue.length == 0) {
+        return;
+    }
+    
+    NSMutableArray *tokens = [self tokensWithCertificate:_selectedCertificate create:YES];
+    if (tokens != nil && [tokens containsObject:_tokenCombo.stringValue]) {
+        return;
+    }
+    NSMutableDictionary *mutDic = [_tokenList mutableCopy];
+    if (mutDic == nil) {
+        mutDic = [NSMutableDictionary dictionary];
+    }
+    
+    NSString *identifier = [self identifierWithCertificate:_selectedCertificate];
+    if (!identifier) return;
+    
+    //原来token数组
+    NSArray *originTokenArr = mutDic[identifier];
+    //将要更改的数组
+    NSMutableArray *currentArr = [originTokenArr mutableCopy];
+    
+    NSString *currentToken = _tokenCombo.stringValue;
+    if (originTokenArr != nil && [originTokenArr isKindOfClass:[NSArray class]] && originTokenArr.count > 0) {
+        if ([currentArr containsObject:currentToken]) {
+            [currentArr removeObject:currentToken];
+            [currentArr addObject:currentToken];
+        } else {
+            [currentArr addObject:currentToken];
+        }
+    } else {
+        currentArr = [NSMutableArray array];
+        [currentArr addObject:currentToken];
+    }
+    mutDic[identifier] = currentArr;
+    _tokenList = mutDic;
+    if (_tokenList.count) {
+        [[NSUserDefaults standardUserDefaults] setObject:_tokenList forKey:BFInputTokenList];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    [self updateTokenCombo];
+}
+
 
 #pragma mark - Certificate and Identity
 
@@ -440,7 +525,7 @@
         _lastSelectedIndex = 0;
         [self selectCertificate:nil identity:nil environment:NWEnvironmentSandbox];
         _tokenCombo.enabled = NO;
-        [self updateTokenCombo];
+        [self loadSelectedToken];
     } else if (index <= _certificateIdentityPairs.count) {
         [_certificatePopup selectItemAtIndex:index];
         _lastSelectedIndex = index;
@@ -449,6 +534,7 @@
         NWIdentityRef identity = pair[1];
         _tokenCombo.enabled = YES;
         [self selectCertificate:certificate identity:identity == NSNull.null ? nil : identity  environment:[self preferredEnvironmentForCertificate:certificate]];
+        [self loadSelectedToken];
     } else {
         [_certificatePopup selectItemAtIndex:_lastSelectedIndex];
         [self importIdentity];
@@ -507,8 +593,7 @@
                     [hub disconnect];
                     [_certificatePopup selectItemAtIndex:0];
                 }
-                [self updateTokenCombo];
-
+//                [self updateTokenCombo];
             });
         });
     }
@@ -597,66 +682,6 @@
     NSString *summary = [NWSecTools summaryWithCertificate:certificate];
     NSString *identifier = summary ? [NSString stringWithFormat:@"%@%@", summary, environment == NWEnvironmentSandbox ? @"-sandbox" : @""] : nil;
     return identifier;
-}
-
-- (NSMutableArray *)tokensWithCertificate:(NWCertificateRef)certificate create:(BOOL)create
-{
-    NSString *identifier = [self identifierWithCertificate:certificate];
-    if (!identifier) return nil;
-    NSArray *result = _config[identifier];
-    return (NSMutableArray *)result;
-}
-
-- (void)updateTokenCombo
-{
-    [_tokenCombo removeAllItems];
-    NSArray *tokens = [self tokensWithCertificate:_selectedCertificate create:NO];
-    if (tokens.count) [_tokenCombo addItemsWithObjectValues:tokens.reverseObjectEnumerator.allObjects];
-    _tokenCombo.stringValue = [[self tokensWithCertificate:_selectedCertificate create:YES] lastObject] ?: @"";
-}
-
-- (void)loadConfig
-{
-    _config = [[NSUserDefaults standardUserDefaults] objectForKey:BFInputTokenList];
-    if (_config == nil) {
-        _config = [NSDictionary dictionary];
-    }
-    NWLogInfo(@"Loaded config from %@", _config);
-}
-
-- (void)saveConfig
-{
-    NSMutableDictionary *mutDic = [_config mutableCopy];
-    if (mutDic == nil) {
-        mutDic = [NSMutableDictionary dictionary];
-    }
-
-    NSString *identifier = [self identifierWithCertificate:_selectedCertificate];
-    if (!identifier) return;
-    
-    //原来token数组
-    NSArray *originTokenArr = mutDic[identifier];
-    //将要更改的数组
-    NSMutableArray *currentArr = [originTokenArr mutableCopy];
-
-    NSString *currentToken = _tokenCombo.stringValue;
-    if (originTokenArr != nil && [originTokenArr isKindOfClass:[NSArray class]] && originTokenArr.count > 0) {
-        if ([currentArr containsObject:currentToken]) {
-            [currentArr removeObject:currentToken];
-            [currentArr addObject:currentToken];
-        } else {
-            [currentArr addObject:currentToken];
-        }
-    } else {
-        currentArr = [NSMutableArray array];
-        [currentArr addObject:currentToken];
-    }
-    mutDic[identifier] = currentArr;
-    _config = mutDic;
-    if (_config.count) {
-        [[NSUserDefaults standardUserDefaults] setObject:_config forKey:BFInputTokenList];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
 }
 
 #pragma mark - Logging
