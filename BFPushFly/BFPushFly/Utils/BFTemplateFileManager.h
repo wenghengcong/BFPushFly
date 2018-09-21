@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BFTemplateModel.h"
 #import "BFConst.h"
-
-@class BFTemplateModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BFTemplateFileManager : NSObject
 
 //+ (instancetype)defaultManager;
+
++ (void)createDefaultTemplate;
 
 + (NSArray <BFTemplateModel *> *)templates;
 

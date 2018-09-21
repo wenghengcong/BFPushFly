@@ -21,6 +21,9 @@ typedef NS_ENUM(NSUInteger, BFTemplateEditState) {
 
 #define BFInputTokenList                   @"BFInputTokenList"
 
+#define BFSaveDefaultTemplateFileCount        @"BFSaveDefaultTemplateFileCount"
+
+#define BFPushTokenComboBoxIdentifier               @"BFPushTokenComboBoxIdentifier"
 
 NS_ASSUME_NONNULL_BEGIN
 

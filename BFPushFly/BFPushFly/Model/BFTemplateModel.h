@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, nullable) NSData         *payloadData;
 
+@property (nonatomic, assign) NSInteger             version;
+
 + (BFTemplateModel *)modelWithDic: (NSDictionary *)dic;
 
 @end

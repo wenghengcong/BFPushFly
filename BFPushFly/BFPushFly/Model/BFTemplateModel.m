@@ -23,6 +23,7 @@
     model.updatedTime = [[dic objectForKey:@"updated_time"] longLongValue];
     model.payloadData = [dic objectForKey:@"payload"];
     model.payloadAttributedString = [NSKeyedUnarchiver unarchiveObjectWithData: model.payloadData];
+    model.version = [[dic objectForKey:@"version"] integerValue];
     return model;
 }
 
@@ -35,6 +36,7 @@
     model.updatedTime = self.updatedTime;
     model.payloadData = self.payloadData;
     model.payloadAttributedString = self.payloadAttributedString;
+    model.version = self.version;
     return model;
 }
 

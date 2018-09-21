@@ -62,7 +62,6 @@
     [self loadCertificatesFromKeychain];
     [self updateCertificatePopup];
 
-    
     NSString *payload = [_tokenList valueForKey:@"payload"];
     _payloadField.string = payload.length ? payload : @"";
     _payloadField.font = [NSFont fontWithName:@"Monaco" size:10];
@@ -73,6 +72,8 @@
     [self updatePayloadCounter];
     [self selectOutput:nil];
     NWLogInfo(@"");
+    
+    self.tokenCombo.window.identifier = BFPushTokenComboBoxIdentifier;
 }
 
 - (void)firstLoadData

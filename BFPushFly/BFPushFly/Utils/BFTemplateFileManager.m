@@ -7,7 +7,6 @@
 //
 
 #import "BFTemplateFileManager.h"
-#import "BFTemplateModel.h"
 
 static NSString *templateDirectoryPathComponet = @"template";
 
@@ -36,8 +35,32 @@ static NSString *templateDirectoryPathComponet = @"template";
     return self;
 }
 
++ (void)createDefaultTemplate
+{
+    NSInteger count = [[[NSUserDefaults standardUserDefaults] objectForKey:BFSaveDefaultTemplateFileCount] integerValue];
+    count++;
+    [[NSUserDefaults standardUserDefaults] setObject:@(count) forKey:BFSaveDefaultTemplateFileCount];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSFileManager *fileM = [NSFileManager defaultManager];
+    NSString * defaultTemplatePath = [[NSBundle mainBundle] pathForResource:@"defaultTemplate" ofType:@"plist"];
+    NSString * desPath = [[self templateDirectoryPath] stringByAppendingPathComponent:@"defaultTemplate_beefun_luci.plist"];
+    if ([fileM fileExistsAtPath:desPath]) {
+        return;
+    }
+
+    NSError *error;
+    if(![fileM copyItemAtPath:defaultTemplatePath toPath:desPath error:&error]) {
+        // handle the error
+        NSLog(@"Error creating the database: %@", [error description]);
+    }
+}
+
 + (NSArray <BFTemplateModel *> *)templates
 {
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:BFSaveDefaultTemplateFileCount] integerValue] < 3) {
+        [self createDefaultTemplate];
+    }
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pathExtension == 'plist'"];
     NSArray *plistPaths = [[[NSFileManager defaultManager] contentsOfDirectoryAtURL:[self templateDirectoryURL] includingPropertiesForKeys:nil options:NSDirectoryEnumerationSkipsSubdirectoryDescendants error:nil] filteredArrayUsingPredicate:predicate];
     NSMutableArray *templateModels = [NSMutableArray array];
@@ -47,7 +70,11 @@ static NSString *templateDirectoryPathComponet = @"template";
                 NSMutableDictionary *plistDic = [[NSMutableDictionary alloc] initWithContentsOfFile: [url path]];
                 BFTemplateModel *model = [BFTemplateModel modelWithDic: plistDic];
                 if (model != nil) {
-                    [templateModels addObject:model];
+                    if ([url.path containsString:@"defaultTemplate_beefun_luci"]) {
+                        [templateModels insertObject:model atIndex:0];
+                    } else {
+                        [templateModels addObject:model];
+                    }
                 }
             }
         }
