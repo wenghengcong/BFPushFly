@@ -14,6 +14,7 @@
 "Payload is empty or malformed, chek it"="Payload is empty or malformed, chek it";
 "Don't"= "Don't";
 "Default Template can't edit or delete" = "Default Template can't edit or delete";
+"malformed"="malformed";
 
 "Enter password for"="Enter password for";
 "OK"="OK";

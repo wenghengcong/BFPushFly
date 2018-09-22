@@ -126,7 +126,7 @@
 {
     NSString *payload = _payloadTextField.string;
     BOOL isJSON = !![NSJSONSerialization JSONObjectWithData:[payload dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-    _countLabel.stringValue = [NSString stringWithFormat:@"%@  %lu", isJSON ? @"" : @"malformed", payload.length];
+    _countLabel.stringValue = [NSString stringWithFormat:@"%@  %lu", isJSON ? @"" : NSLocalizedString(@"malformed", nil) , payload.length];
     _countLabel.textColor = payload.length > 256 || !isJSON ? NSColor.redColor : NSColor.darkGrayColor;
 }
 

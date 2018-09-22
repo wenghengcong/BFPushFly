@@ -14,6 +14,7 @@
 "Payload is empty or malformed, chek it"="Payload为空或格式错误, 请校验";
 "Don't"= "不";
 "Default Template can't edit or delete" = "默认模板不允许编辑或删除";
+"malformed"="格式不正确";
 
 "Enter password for"="输入密码";
 "OK"="确定";

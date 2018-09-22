@@ -97,7 +97,11 @@
 
 - (IBAction)saveTemplateFile:(id)sender {
     _selctedTemplate.payloadAttributedString = _payloadField.attributedString;
-    [BFTemplateFileManager updateTemplate:_selctedTemplate];
+    if ([_selctedTemplate isDefautlTemplate]) {
+        [self showCantEditDefaultTip];
+    } else {
+        [BFTemplateFileManager updateTemplate:_selctedTemplate];
+    }
 }
 
 #pragma mark  Menu
@@ -111,6 +115,7 @@
 
 - (IBAction)copyTemplate:(id)sender {
     NSInteger row = [_templateTableView clickedRow];
+    if (row == -1) return;
     BFTemplateModel *model = [_templateFiles objectAtIndex:row];
     if ([model isDefautlTemplate]) {
         model.creator = BFTemplateModelCreatorUser;
@@ -122,8 +127,8 @@
 }
 
 - (IBAction)editTemplateFile:(id)sender {
-    
     NSInteger row = [_templateTableView clickedRow];
+    if (row == -1) return;
     BFTemplateModel *model = [_templateFiles objectAtIndex:row];
     _editTemplate = model;
     if ([model isDefautlTemplate]) {
@@ -136,6 +141,7 @@
 
 - (IBAction)deleteTemplateFile:(id)sender {
     NSInteger row = [_templateTableView clickedRow];
+    if (row == -1) return;
     BFTemplateModel *model = [_templateFiles objectAtIndex:row];
     if ([model isDefautlTemplate]) {
         [self showCantEditDefaultTip];
@@ -510,7 +516,7 @@
 {
     NSString *payload = _payloadField.string;
     BOOL isJSON = !![NSJSONSerialization JSONObjectWithData:[payload dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-    _countField.stringValue = [NSString stringWithFormat:@"%@  %lu", isJSON ? @"" : @"malformed", payload.length];
+    _countField.stringValue = [NSString stringWithFormat:@"%@  %lu", isJSON ? @"" : NSLocalizedString(@"malformed", nil), payload.length];
     _countField.textColor = payload.length > 256 || !isJSON ? NSColor.redColor : NSColor.darkGrayColor;
 }
 

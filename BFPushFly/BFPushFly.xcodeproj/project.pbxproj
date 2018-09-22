@@ -232,9 +232,9 @@
 				5E0F0C702154788800464EA1 /* Utils */,
 				5E0F0C6F2154787E00464EA1 /* Model */,
 				5E0F0C6D2153A57E00464EA1 /* ViewController */,
+				5E6A2DDD214BB5A900D981A2 /* Support Files */,
 				5E6A2DAD214BABDF00D981A2 /* AppDelegate.h */,
 				5E6A2DAE214BABDF00D981A2 /* AppDelegate.m */,
-				5E6A2DDD214BB5A900D981A2 /* Support Files */,
 			);
 			path = BFPushFly;
 			sourceTree = "<group>";
@@ -636,7 +636,7 @@
 				INFOPLIST_FILE = "BFPushFly/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luci.BFPushFly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luci.pushfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -654,7 +654,7 @@
 				INFOPLIST_FILE = "BFPushFly/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = com.luci.BFPushFly;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luci.pushfly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -167,6 +167,10 @@ static NSString *templateDirectoryPathComponet = @"template";
     NSURL *documentsPath = [paths objectAtIndex:0];
     NSString *tempateDirectoryCom = [NSString stringWithFormat:@"%@/", templateDirectoryPathComponet];
     NSURL *templatePath = [documentsPath URLByAppendingPathComponent:tempateDirectoryCom];
+    NSFileManager *fileM = [NSFileManager defaultManager];
+    if (![fileM fileExistsAtPath:templatePath.path]) {
+        [fileM createDirectoryAtPath:templatePath.path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
     return templatePath;
 }
 
