@@ -14,6 +14,7 @@
 		5E0FBAB121553536002B3AA9 /* defaultTemplate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FBAB321553536002B3AA9 /* defaultTemplate.plist */; };
 		5E0FBABB2155BEF4002B3AA9 /* AutoGenStrings.py in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FBABA2155BEF3002B3AA9 /* AutoGenStrings.py */; };
 		5E0FBAC32155C411002B3AA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FBAC52155C411002B3AA9 /* Localizable.strings */; };
+		5E0FBAC92155D65A002B3AA9 /* BFAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0FBAC82155D65A002B3AA9 /* BFAlert.m */; };
 		5E46E0252153421B007DFDBD /* NWSecTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E46E0172153421B007DFDBD /* NWSecTools.m */; };
 		5E46E0262153421B007DFDBD /* NWHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E46E0192153421B007DFDBD /* NWHub.m */; };
 		5E46E0272153421B007DFDBD /* NWPushFeedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E46E01A2153421B007DFDBD /* NWPushFeedback.m */; };
@@ -66,6 +67,8 @@
 		5E0FBAC22155C076002B3AA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/defaultTemplate.plist; sourceTree = "<group>"; };
 		5E0FBAC42155C411002B3AA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5E0FBAC62155C41F002B3AA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5E0FBAC72155D65A002B3AA9 /* BFAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFAlert.h; sourceTree = "<group>"; };
+		5E0FBAC82155D65A002B3AA9 /* BFAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFAlert.m; sourceTree = "<group>"; };
 		5E46E0172153421B007DFDBD /* NWSecTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWSecTools.m; sourceTree = "<group>"; };
 		5E46E0182153421B007DFDBD /* NWNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWNotification.h; sourceTree = "<group>"; };
 		5E46E0192153421B007DFDBD /* NWHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWHub.m; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				5EFA4B1821549C630077D353 /* BFConst.m */,
 				5E0F0C74215478AC00464EA1 /* BFTemplateFileManager.h */,
 				5E0F0C75215478AC00464EA1 /* BFTemplateFileManager.m */,
+				5E0FBAC72155D65A002B3AA9 /* BFAlert.h */,
+				5E0FBAC82155D65A002B3AA9 /* BFAlert.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -441,6 +446,7 @@
 				5E6A2DB2214BABDF00D981A2 /* BFPushViewController.m in Sources */,
 				5E0F0C6921539E1400464EA1 /* BFTemplateCellView.m in Sources */,
 				5E46E02B2153421B007DFDBD /* NWType.m in Sources */,
+				5E0FBAC92155D65A002B3AA9 /* BFAlert.m in Sources */,
 				5E6A2DBA214BABDF00D981A2 /* main.m in Sources */,
 				5E46E0262153421B007DFDBD /* NWHub.m in Sources */,
 				5E6A2DAF214BABDF00D981A2 /* AppDelegate.m in Sources */,
@@ -561,7 +567,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -611,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};
@@ -625,7 +631,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
-				DEPLOYMENT_POSTPROCESSING = YES;
+				DEPLOYMENT_POSTPROCESSING = NO;
 				DEVELOPMENT_TEAM = 69XHTLCF36;
 				INFOPLIST_FILE = "BFPushFly/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
@@ -643,7 +649,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEPLOYMENT_LOCATION = YES;
-				DEPLOYMENT_POSTPROCESSING = YES;
+				DEPLOYMENT_POSTPROCESSING = NO;
 				DEVELOPMENT_TEAM = 69XHTLCF36;
 				INFOPLIST_FILE = "BFPushFly/Support Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";

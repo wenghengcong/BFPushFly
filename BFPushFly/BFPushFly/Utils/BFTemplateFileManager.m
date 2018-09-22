@@ -37,11 +37,6 @@ static NSString *templateDirectoryPathComponet = @"template";
 
 + (void)createDefaultTemplate
 {
-    NSInteger count = [[[NSUserDefaults standardUserDefaults] objectForKey:BFSaveDefaultTemplateFileCount] integerValue];
-    count++;
-    [[NSUserDefaults standardUserDefaults] setObject:@(count) forKey:BFSaveDefaultTemplateFileCount];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
     NSFileManager *fileM = [NSFileManager defaultManager];
     NSString * defaultTemplatePath = [[NSBundle mainBundle] pathForResource:@"defaultTemplate" ofType:@"plist"];
     NSString * desPath = [[self templateDirectoryPath] stringByAppendingPathComponent:@"defaultTemplate_beefun_luci.plist"];
@@ -53,14 +48,13 @@ static NSString *templateDirectoryPathComponet = @"template";
     if(![fileM copyItemAtPath:defaultTemplatePath toPath:desPath error:&error]) {
         // handle the error
         NSLog(@"Error creating the database: %@", [error description]);
+    } else {
+        [self postNotification:YES];
     }
 }
 
 + (NSArray <BFTemplateModel *> *)templates
 {
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:BFSaveDefaultTemplateFileCount] integerValue] < 3) {
-        [self createDefaultTemplate];
-    }
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"pathExtension == 'plist'"];
     NSArray *plistPaths = [[[NSFileManager defaultManager] contentsOfDirectoryAtURL:[self templateDirectoryURL] includingPropertiesForKeys:nil options:NSDirectoryEnumerationSkipsSubdirectoryDescendants error:nil] filteredArrayUsingPredicate:predicate];
     NSMutableArray *templateModels = [NSMutableArray array];
@@ -117,8 +111,12 @@ static NSString *templateDirectoryPathComponet = @"template";
     }
     
     NSMutableDictionary *saveDic = [NSMutableDictionary dictionary];
+
     [saveDic setObject:model.title forKey:@"title"];
     [saveDic setObject:model.desc forKey:@"description"];
+    
+    [saveDic setObject:@(model.version) forKey:@"vserion"];
+    [saveDic setObject:@(model.creator) forKey:@"creator"];
     if (model.createdTime >= 0.01) {
         [saveDic setObject:@(model.createdTime) forKey:@"created_time" ];
     }

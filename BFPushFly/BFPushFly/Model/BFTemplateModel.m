@@ -23,8 +23,14 @@
     model.updatedTime = [[dic objectForKey:@"updated_time"] longLongValue];
     model.payloadData = [dic objectForKey:@"payload"];
     model.payloadAttributedString = [NSKeyedUnarchiver unarchiveObjectWithData: model.payloadData];
-    model.version = [[dic objectForKey:@"version"] integerValue];
+    model.version = [[dic objectForKey:@"version"] unsignedIntegerValue];
+    model.creator = [[dic objectForKey:@"creator"] integerValue];
     return model;
+}
+
+- (BOOL)isDefautlTemplate
+{
+    return self.creator == BFTemplateModelCreatorSystem;
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -37,6 +43,7 @@
     model.payloadData = self.payloadData;
     model.payloadAttributedString = self.payloadAttributedString;
     model.version = self.version;
+    model.creator = self.creator;
     return model;
 }
 

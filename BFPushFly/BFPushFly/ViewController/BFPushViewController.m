@@ -18,6 +18,7 @@
 #import "BFTemplateModel.h"
 #import "BFTemplateFileManager.h"
 #import "BFEditTemplateController.h"
+#import "BFAlert.h"
 
 
 @interface BFPushViewController() <NWHubDelegate, NSTableViewDelegate, NSTableViewDataSource, NSTextFieldDelegate>
@@ -71,9 +72,7 @@
     _logField.enabledTextCheckingTypes = 0;
     [self updatePayloadCounter];
     [self selectOutput:nil];
-    NWLogInfo(@"");
-    
-    self.tokenCombo.window.identifier = BFPushTokenComboBoxIdentifier;
+    NWLogInfo(@"");    
 }
 
 - (void)firstLoadData
@@ -91,12 +90,6 @@
 
 #pragma mark - Action
 
-- (IBAction)copyTemplate:(id)sender {
-    NSInteger row = [_templateTableView clickedRow];
-    BFTemplateModel *model = [_templateFiles objectAtIndex:row];
-    [BFTemplateFileManager copyTemplate:model];
-}
-
 - (IBAction)addTemplateFile:(id)sender {
     _editState = BFTemplateEditStateCreated;
     [self performSegueWithIdentifier:@"Edit Template" sender:nil];
@@ -107,20 +100,48 @@
     [BFTemplateFileManager updateTemplate:_selctedTemplate];
 }
 
+#pragma mark  Menu
+
+- (void)showCantEditDefaultTip
+{
+    [BFAlert showAlertInWindow:self.view.window message:NSLocalizedString(@"Don't", nil) info:NSLocalizedString(@"Default Template can't edit or delete", nil) style:NSWarningAlertStyle completionHandler:^(NSModalResponse returnCode) {
+        
+    }];
+}
+
+- (IBAction)copyTemplate:(id)sender {
+    NSInteger row = [_templateTableView clickedRow];
+    BFTemplateModel *model = [_templateFiles objectAtIndex:row];
+    if ([model isDefautlTemplate]) {
+        model.creator = BFTemplateModelCreatorUser;
+    } else {
+    }
+    NSString *copyTitle = [NSString stringWithFormat:@"%@-copy", model.title];
+    model.title = copyTitle;
+    [BFTemplateFileManager copyTemplate:model];
+}
+
 - (IBAction)editTemplateFile:(id)sender {
     
     NSInteger row = [_templateTableView clickedRow];
     BFTemplateModel *model = [_templateFiles objectAtIndex:row];
     _editTemplate = model;
-
-    _editState = BFTemplateEditStateEdited;
-    [self performSegueWithIdentifier:@"Edit Template" sender:nil];
+    if ([model isDefautlTemplate]) {
+        [self showCantEditDefaultTip];
+    } else {
+        _editState = BFTemplateEditStateEdited;
+        [self performSegueWithIdentifier:@"Edit Template" sender:nil];
+    }
 }
 
 - (IBAction)deleteTemplateFile:(id)sender {
     NSInteger row = [_templateTableView clickedRow];
     BFTemplateModel *model = [_templateFiles objectAtIndex:row];
-    [BFTemplateFileManager deleteTemplate: model];
+    if ([model isDefautlTemplate]) {
+        [self showCantEditDefaultTip];
+    } else {
+        [BFTemplateFileManager deleteTemplate: model];
+    }
 }
 
 
@@ -347,7 +368,6 @@
     }
     [self updateTokenCombo];
 }
-
 
 #pragma mark - Certificate and Identity
 

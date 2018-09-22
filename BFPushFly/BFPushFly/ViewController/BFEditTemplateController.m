@@ -9,6 +9,7 @@
 #import "BFEditTemplateController.h"
 #import "BFTemplateModel.h"
 #import "BFTemplateFileManager.h"
+#import "BFAlert.h"
 
 @interface BFEditTemplateController ()<NSTextFieldDelegate>
 {
@@ -54,8 +55,13 @@
     if (_templateModel == nil) {
         _templateModel = [[BFTemplateModel alloc] init];
     }
+
     _templateModel.title = _titleTextField.stringValue;
     _templateModel.desc = _descTextField.stringValue;
+    
+    _templateModel.creator = BFTemplateModelCreatorUser;
+    _templateModel.version = 1;
+    
     if (_editState == BFTemplateEditStateCreated) {
         _templateModel.createdTime = currentTime;
         _templateModel.updatedTime = currentTime;
@@ -83,10 +89,7 @@
         [self dismissViewController:self];
     } else {
         NSLog(@"保存失败");
-        NSAlert * alert = [[NSAlert alloc] init];
-        alert.alertStyle = NSWarningAlertStyle;
-        alert.messageText = @"保存文件失败，请再次尝试。";
-        [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {
+        [BFAlert showAlertInWindow:self.view.window message:NSLocalizedString(@"Save failure", nil) info:NSLocalizedString(@"File system error,Please try aggin", nil) style:NSWarningAlertStyle completionHandler:^(NSModalResponse returnCode) {
             
         }];
     }
@@ -96,13 +99,9 @@
 
 - (BOOL)checkCorrectBeforeSave
 {
-    NSAlert * alert = [[NSAlert alloc] init];
-    alert.alertStyle = NSWarningAlertStyle;
-
     NSString *title = _titleTextField.stringValue;
     if (title == nil || title.length == 0) {
-        alert.messageText = @"标题不能为空";
-        [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {
+        [BFAlert showAlertInWindow:self.view.window message:NSLocalizedString(@"Save failure", nil)  info:NSLocalizedString(@"Title can't empty", nil) style:NSWarningAlertStyle completionHandler:^(NSModalResponse returnCode) {
             
         }];
         return NO;
@@ -110,8 +109,7 @@
     NSString *payload = _payloadTextField.string;
     BOOL isJSON = !![NSJSONSerialization JSONObjectWithData:[payload dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
     if (!isJSON) {
-        alert.messageText = @"Payload格式不符，请校验是否正确的JSON格式";
-        [alert beginSheetModalForWindow:self.view.window completionHandler:^(NSModalResponse returnCode) {
+        [BFAlert showAlertInWindow:self.view.window message:NSLocalizedString(@"Save failure", nil) info:NSLocalizedString(@"Payload is empty or malformed, chek it", nil) style:NSWarningAlertStyle completionHandler:^(NSModalResponse returnCode) {
             
         }];
         return NO;

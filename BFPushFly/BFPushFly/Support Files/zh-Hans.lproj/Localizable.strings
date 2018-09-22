@@ -8,6 +8,12 @@
 
 "Select Push Certificate" = "选择推送证书";
 "Import PKCS #12 file (.p12)..."="导入 PKCS #12 文件(.p12)";
+"Save failure"="保存失败";
+"File system error,Please try aggin"="文件系统出错, 请再次尝试";
+"Title can't empty"="标题不能为空";
+"Payload is empty or malformed, chek it"="Payload为空或格式错误, 请校验";
+"Don't"= "不";
+"Default Template can't edit or delete" = "默认模板不允许编辑或删除";
 
 "Enter password for"="输入密码";
 "OK"="确定";

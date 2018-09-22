@@ -15,16 +15,18 @@ typedef NS_ENUM(NSUInteger, BFTemplateEditState) {
     BFTemplateEditStateEdited = 1,
 };
 
-#define BFTemplateFileUpdateSuccessful       @"BFTemplateFileUpdateSuccessful"
+#pragma mark - Noti
 
-#define BFTemplateFileUpdateFial            @"BFTemplateFileUpdateSuccessful"
+#define BFTemplateFileUpdateSuccessful                @"BFTemplateFileUpdateSuccessful"
+#define BFTemplateFileUpdateFial                       @"BFTemplateFileUpdateSuccessful"
 
-#define BFInputTokenList                   @"BFInputTokenList"
+#pragma mark - save key
 
-#define BFSaveDefaultTemplateFileCount        @"BFSaveDefaultTemplateFileCount"
+#define BFInputTokenList                                 @"BFInputTokenList"
+#define BFSaveDefaultTemplateFileCount                @"BFSaveDefaultTemplateFileCount"
+#define BFDefaultTempateFileName                      @"defaultTemplate_beefun_luci"
 
-#define BFPushTokenComboBoxIdentifier               @"BFPushTokenComboBoxIdentifier"
-
+#pragma mark - shortcut
 #define NSLocalizedFormatString(fmt, ...)    [NSString stringWithFormat:NSLocalizedString(fmt, nil), __VA_ARGS__]
 
 NS_ASSUME_NONNULL_BEGIN

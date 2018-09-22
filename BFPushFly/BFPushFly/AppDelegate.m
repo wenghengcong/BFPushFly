@@ -7,6 +7,7 @@
 //
 #import "AppDelegate.h"
 #import "BFConst.h"
+#import "BFTemplateFileManager.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     // Insert code here to initialize your application
-    
+    [BFTemplateFileManager createDefaultTemplate];
 }
 
 

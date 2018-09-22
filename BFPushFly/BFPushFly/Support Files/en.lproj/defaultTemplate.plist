@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>creator</key>
+	<integer>1</integer>
+	<key>version</key>
+	<integer>1</integer>
 	<key>created_time</key>
 	<integer>1537539309589</integer>
 	<key>description</key>

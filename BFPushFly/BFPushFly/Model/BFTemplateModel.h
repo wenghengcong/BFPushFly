@@ -10,6 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, BFTemplateModelCreator) {
+    BFTemplateModelCreatorUser = 0,
+    BFTemplateModelCreatorSystem = 1,
+};
+
 @interface BFTemplateModel : NSObject<NSCopying>
 
 @property (nonatomic, copy) NSString        *title;
@@ -24,9 +29,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong, nullable) NSData         *payloadData;
 
-@property (nonatomic, assign) NSInteger             version;
+@property (nonatomic, assign) NSUInteger             version;
+
+@property (nonatomic, assign) BFTemplateModelCreator     creator;
 
 + (BFTemplateModel *)modelWithDic: (NSDictionary *)dic;
+
+- (BOOL)isDefautlTemplate;
 
 @end
 

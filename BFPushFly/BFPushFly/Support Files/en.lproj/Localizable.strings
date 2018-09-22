@@ -8,6 +8,12 @@
 
 "Select Push Certificate" = "Select Push Certificate";
 "Import PKCS #12 file (.p12)..."="Import PKCS #12 file (.p12)...";
+"Save failure"="Save failure";
+"File system error,Please try aggin"="File system error,Please try aggin";
+"Title can't empty"="Title can't empty";
+"Payload is empty or malformed, chek it"="Payload is empty or malformed, chek it";
+"Don't"= "Don't";
+"Default Template can't edit or delete" = "Default Template can't edit or delete";
 
 "Enter password for"="Enter password for";
 "OK"="OK";
