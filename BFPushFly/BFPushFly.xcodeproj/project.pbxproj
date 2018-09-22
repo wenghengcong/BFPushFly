@@ -12,7 +12,6 @@
 		5E0F0C732154789B00464EA1 /* BFTemplateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F0C722154789B00464EA1 /* BFTemplateModel.m */; };
 		5E0F0C76215478AC00464EA1 /* BFTemplateFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0F0C75215478AC00464EA1 /* BFTemplateFileManager.m */; };
 		5E0FBAB121553536002B3AA9 /* defaultTemplate.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FBAB321553536002B3AA9 /* defaultTemplate.plist */; };
-		5E0FBABB2155BEF4002B3AA9 /* AutoGenStrings.py in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FBABA2155BEF3002B3AA9 /* AutoGenStrings.py */; };
 		5E0FBAC32155C411002B3AA9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FBAC52155C411002B3AA9 /* Localizable.strings */; };
 		5E0FBAC92155D65A002B3AA9 /* BFAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E0FBAC82155D65A002B3AA9 /* BFAlert.m */; };
 		5E46E0252153421B007DFDBD /* NWSecTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E46E0172153421B007DFDBD /* NWSecTools.m */; };
@@ -60,7 +59,6 @@
 		5E0F0C74215478AC00464EA1 /* BFTemplateFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFTemplateFileManager.h; sourceTree = "<group>"; };
 		5E0F0C75215478AC00464EA1 /* BFTemplateFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFTemplateFileManager.m; sourceTree = "<group>"; };
 		5E0FBAB421553538002B3AA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/defaultTemplate.plist; sourceTree = "<group>"; };
-		5E0FBABA2155BEF3002B3AA9 /* AutoGenStrings.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = AutoGenStrings.py; sourceTree = "<group>"; };
 		5E0FBABF2155C06C002B3AA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5E0FBAC02155C06C002B3AA9 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/defaultTemplate.plist"; sourceTree = "<group>"; };
 		5E0FBAC12155C076002B3AA9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
@@ -83,7 +81,7 @@
 		5E46E0222153421B007DFDBD /* NWPusher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWPusher.h; sourceTree = "<group>"; };
 		5E46E0232153421B007DFDBD /* NWType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NWType.m; sourceTree = "<group>"; };
 		5E46E0242153421B007DFDBD /* NWSSLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWSSLConnection.h; sourceTree = "<group>"; };
-		5E6A2DAA214BABDF00D981A2 /* BFPushFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BFPushFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E6A2DAA214BABDF00D981A2 /* PushFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PushFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E6A2DAD214BABDF00D981A2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5E6A2DAE214BABDF00D981A2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5E6A2DB0214BABDF00D981A2 /* BFPushViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFPushViewController.h; sourceTree = "<group>"; };
@@ -173,14 +171,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		5E0FBAB92155BEF3002B3AA9 /* RunScript */ = {
-			isa = PBXGroup;
-			children = (
-				5E0FBABA2155BEF3002B3AA9 /* AutoGenStrings.py */,
-			);
-			path = RunScript;
-			sourceTree = "<group>";
-		};
 		5E46E0162153421B007DFDBD /* PushKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -217,7 +207,7 @@
 		5E6A2DAB214BABDF00D981A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E6A2DAA214BABDF00D981A2 /* BFPushFly.app */,
+				5E6A2DAA214BABDF00D981A2 /* PushFly.app */,
 				5E6A2DC0214BABDF00D981A2 /* BFPushFlyTests.xctest */,
 				5E6A2DCB214BABDF00D981A2 /* BFPushFlyUITests.xctest */,
 			);
@@ -227,7 +217,6 @@
 		5E6A2DAC214BABDF00D981A2 /* BFPushFly */ = {
 			isa = PBXGroup;
 			children = (
-				5E0FBAB92155BEF3002B3AA9 /* RunScript */,
 				5E46E0162153421B007DFDBD /* PushKit */,
 				5E0F0C702154788800464EA1 /* Utils */,
 				5E0F0C6F2154787E00464EA1 /* Model */,
@@ -274,22 +263,21 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5E6A2DA9214BABDF00D981A2 /* BFPushFly */ = {
+		5E6A2DA9214BABDF00D981A2 /* PushFly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E6A2DD4214BABDF00D981A2 /* Build configuration list for PBXNativeTarget "BFPushFly" */;
+			buildConfigurationList = 5E6A2DD4214BABDF00D981A2 /* Build configuration list for PBXNativeTarget "PushFly" */;
 			buildPhases = (
 				5E6A2DA6214BABDF00D981A2 /* Sources */,
 				5E6A2DA7214BABDF00D981A2 /* Frameworks */,
 				5E6A2DA8214BABDF00D981A2 /* Resources */,
-				5E0FBABC2155BF02002B3AA9 /* Auto Location String */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = BFPushFly;
+			name = PushFly;
 			productName = BFPushFly;
-			productReference = 5E6A2DAA214BABDF00D981A2 /* BFPushFly.app */;
+			productReference = 5E6A2DAA214BABDF00D981A2 /* PushFly.app */;
 			productType = "com.apple.product-type.application";
 		};
 		5E6A2DBF214BABDF00D981A2 /* BFPushFlyTests */ = {
@@ -372,7 +360,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E6A2DA9214BABDF00D981A2 /* BFPushFly */,
+				5E6A2DA9214BABDF00D981A2 /* PushFly */,
 				5E6A2DBF214BABDF00D981A2 /* BFPushFlyTests */,
 				5E6A2DCA214BABDF00D981A2 /* BFPushFlyUITests */,
 			);
@@ -386,7 +374,6 @@
 			files = (
 				5E0FBAC32155C411002B3AA9 /* Localizable.strings in Resources */,
 				5E6A2DB4214BABDF00D981A2 /* Assets.xcassets in Resources */,
-				5E0FBABB2155BEF4002B3AA9 /* AutoGenStrings.py in Resources */,
 				5E6A2DB7214BABDF00D981A2 /* Main.storyboard in Resources */,
 				5E0FBAB121553536002B3AA9 /* defaultTemplate.plist in Resources */,
 			);
@@ -407,27 +394,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		5E0FBABC2155BF02002B3AA9 /* Auto Location String */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Auto Location String";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\npython ${SRCROOT}/${TARGET_NAME}/RunScript/AutoGenStrings.py ${SRCROOT}/${TARGET_NAME}\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5E6A2DA6214BABDF00D981A2 /* Sources */ = {
@@ -475,12 +441,12 @@
 /* Begin PBXTargetDependency section */
 		5E6A2DC2214BABDF00D981A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5E6A2DA9214BABDF00D981A2 /* BFPushFly */;
+			target = 5E6A2DA9214BABDF00D981A2 /* PushFly */;
 			targetProxy = 5E6A2DC1214BABDF00D981A2 /* PBXContainerItemProxy */;
 		};
 		5E6A2DCD214BABDF00D981A2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5E6A2DA9214BABDF00D981A2 /* BFPushFly */;
+			target = 5E6A2DA9214BABDF00D981A2 /* PushFly */;
 			targetProxy = 5E6A2DCC214BABDF00D981A2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -729,7 +695,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E6A2DD4214BABDF00D981A2 /* Build configuration list for PBXNativeTarget "BFPushFly" */ = {
+		5E6A2DD4214BABDF00D981A2 /* Build configuration list for PBXNativeTarget "PushFly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E6A2DD5214BABDF00D981A2 /* Debug */,
