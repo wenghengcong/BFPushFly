@@ -25,6 +25,8 @@ typedef NS_ENUM(NSUInteger, BFTemplateEditState) {
 
 #define BFPushTokenComboBoxIdentifier               @"BFPushTokenComboBoxIdentifier"
 
+#define NSLocalizedFormatString(fmt, ...)    [NSString stringWithFormat:NSLocalizedString(fmt, nil), __VA_ARGS__]
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BFConst : NSObject

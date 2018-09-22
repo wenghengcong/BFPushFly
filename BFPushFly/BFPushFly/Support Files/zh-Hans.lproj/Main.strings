@@ -9,7 +9,7 @@
 "1b7-l0-nxx.title" = "Find";
 
 /* Class = "NSMenuItem"; title = "删除"; ObjectID = "1g6-6S-xjb"; */
-"1g6-6S-xjb.title" = "Delete";
+"1g6-6S-xjb.title" = "删除";
 
 /* Class = "NSMenuItem"; title = "Lower"; ObjectID = "1tx-W0-xDw"; */
 "1tx-W0-xDw.title" = "Lower";
@@ -36,7 +36,7 @@
 "4EN-yA-p0u.title" = "Find";
 
 /* Class = "NSButtonCell"; title = "保存"; ObjectID = "4Hy-Ea-ip2"; */
-"4Hy-Ea-ip2.title" = "Save";
+"4Hy-Ea-ip2.title" = "保存";
 
 /* Class = "NSMenuItem"; title = "Enter Full Screen"; ObjectID = "4J7-dP-txa"; */
 "4J7-dP-txa.title" = "Enter Full Screen";
@@ -51,7 +51,7 @@
 "5Vv-lz-BsD.title" = "Copy Style";
 
 /* Class = "NSTextFieldCell"; title = "标题"; ObjectID = "5ZX-U2-Z8N"; */
-"5ZX-U2-Z8N.title" = "Title";
+"5ZX-U2-Z8N.title" = "标题";
 
 /* Class = "NSMenuItem"; title = "About BFPushFly"; ObjectID = "5kV-Vb-QxS"; */
 "5kV-Vb-QxS.title" = "About BFPushFly";
@@ -72,19 +72,19 @@
 "9yt-4B-nSM.title" = "Smart Copy/Paste";
 
 /* Class = "NSMenuItem"; title = "编辑"; ObjectID = "A7S-kL-fkJ"; */
-"A7S-kL-fkJ.title" = "Edit";
+"A7S-kL-fkJ.title" = "编辑";
 
 /* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
 "AYu-sK-qS6.title" = "Main Menu";
 
 /* Class = "NSButtonCell"; title = "保存"; ObjectID = "AqT-Hf-YDC"; */
-"AqT-Hf-YDC.title" = "Save";
+"AqT-Hf-YDC.title" = "保存";
 
 /* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
 "BOF-NM-1cW.title" = "Preferences…";
 
 /* Class = "NSMenuItem"; title = "Immediately(0)"; ObjectID = "BbR-IM-Apu"; */
-"BbR-IM-Apu.title" = "Immediately(0)";
+"BbR-IM-Apu.title" = "即时(0)";
 
 /* Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "BgM-ve-c93"; */
 "BgM-ve-c93.title" = "\tLeft to Right";
@@ -93,7 +93,7 @@
 "Bw7-FT-i3A.title" = "Save As…";
 
 /* Class = "NSButtonCell"; title = "沙   盒"; ObjectID = "CeT-Xj-zy7"; */
-"CeT-Xj-zy7.title" = "Sandbox";
+"CeT-Xj-zy7.title" = "沙   盒";
 
 /* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
 "DVo-aG-piG.title" = "Close";
@@ -102,10 +102,10 @@
 "Dv1-io-Yv7.title" = "Spelling and Grammar";
 
 /* Class = "NSMenuItem"; title = "Priority: None"; ObjectID = "Dzk-Sh-xMN"; */
-"Dzk-Sh-xMN.title" = "Priority: None";
+"Dzk-Sh-xMN.title" = "优先级: 无";
 
 /* Class = "NSMenuItem"; title = "1 min"; ObjectID = "EzW-Nq-Ujk"; */
-"EzW-Nq-Ujk.title" = "1 min";
+"EzW-Nq-Ujk.title" = "1 分钟";
 
 /* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
 "F2S-fz-NVQ.title" = "Help";
@@ -162,7 +162,7 @@
 "J7y-lM-qPV.title" = "Use None";
 
 /* Class = "NSMenuItem"; title = "复制"; ObjectID = "K3i-5n-1rv"; */
-"K3i-5n-1rv.title" = "Copy";
+"K3i-5n-1rv.title" = "复制";
 
 /* Class = "NSMenuItem"; title = "Revert to Saved"; ObjectID = "KaW-ft-85H"; */
 "KaW-ft-85H.title" = "Revert to Saved";
@@ -180,7 +180,7 @@
 "Lbh-J2-qVU.title" = "\tLeft to Right";
 
 /* Class = "NSMenuItem"; title = "选择证书"; ObjectID = "MSf-7P-kje"; */
-"MSf-7P-kje.title" = "Select Push Certificate";
+"MSf-7P-kje.title" = "选择证书";
 
 /* Class = "NSMenuItem"; title = "Copy Ruler"; ObjectID = "MkV-Pr-PK5"; */
 "MkV-Pr-PK5.title" = "Copy Ruler";
@@ -234,10 +234,10 @@
 "S0q-EG-JWl.title" = "Text Cell";
 
 /* Class = "NSTextFieldCell"; title = "模板列表"; ObjectID = "Sri-OZ-HVs"; */
-"Sri-OZ-HVs.title" = "Templates";
+"Sri-OZ-HVs.title" = "模板列表";
 
 /* Class = "NSTextFieldCell"; title = "描述"; ObjectID = "Tbj-Mu-ZWY"; */
-"Tbj-Mu-ZWY.title" = "Desc";
+"Tbj-Mu-ZWY.title" = "描述";
 
 /* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
 "Td7-aD-5lo.title" = "Window";
@@ -246,7 +246,7 @@
 "UEZ-Bs-lqG.title" = "Capitalize";
 
 /* Class = "NSMenuItem"; title = "Consever Power(5)"; ObjectID = "Ugz-By-Zxh"; */
-"Ugz-By-Zxh.title" = "Conserve Power(5)";
+"Ugz-By-Zxh.title" = "低优先级(5)";
 
 /* Class = "NSTextFieldCell"; title = "Label"; ObjectID = "Una-uQ-llJ"; */
 "Una-uQ-llJ.title" = "Label";
@@ -303,7 +303,7 @@
 "agt-UL-0e3.title" = "Use Default";
 
 /* Class = "NSMenuItem"; title = "1 hour"; ObjectID = "b1S-ZP-oj8"; */
-"b1S-ZP-oj8.title" = "1 hour";
+"b1S-ZP-oj8.title" = "1 小时";
 
 /* Class = "NSMenuItem"; title = "Show Colors"; ObjectID = "bgn-CT-cEk"; */
 "bgn-CT-cEk.title" = "Show Colors";
@@ -342,16 +342,16 @@
 "eoL-FZ-gaT.title" = "Desc";
 
 /* Class = "NSMenuItem"; title = "1 day"; ObjectID = "fWB-w8-tpY"; */
-"fWB-w8-tpY.title" = "1 day";
+"fWB-w8-tpY.title" = "1 天";
 
 /* Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL"; */
 "gVA-U4-sdL.title" = "Paste";
 
 /* Class = "NSTextFieldCell"; title = "日志"; ObjectID = "gwC-nZ-WsA"; */
-"gwC-nZ-WsA.title" = "Logging...";
+"gwC-nZ-WsA.title" = "日志";
 
 /* Class = "NSButtonCell"; title = "取消"; ObjectID = "hPY-BL-dMA"; */
-"hPY-BL-dMA.title" = "Cancel";
+"hPY-BL-dMA.title" = "取消";
 
 /* Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "hQb-2v-fYv"; */
 "hQb-2v-fYv.title" = "Smart Quotes";
@@ -375,13 +375,13 @@
 "jFq-tB-4Kx.title" = "\tRight to Left";
 
 /* Class = "NSMenuItem"; title = "5 min"; ObjectID = "jW3-BO-yfb"; */
-"jW3-BO-yfb.title" = "5 min";
+"jW3-BO-yfb.title" = "5 分钟";
 
 /* Class = "NSMenuItem"; title = "Format"; ObjectID = "jxT-CU-nIS"; */
 "jxT-CU-nIS.title" = "Format";
 
 /* Class = "NSMenuItem"; title = "Far past(1)"; ObjectID = "k8e-yj-AnQ"; */
-"k8e-yj-AnQ.title" = "Far past(1)";
+"k8e-yj-AnQ.title" = "过去(1)";
 
 /* Class = "NSMenuItem"; title = "Show Sidebar"; ObjectID = "kIP-vf-haE"; */
 "kIP-vf-haE.title" = "Show Sidebar";
@@ -393,7 +393,7 @@
 "o6e-r0-MWq.title" = "Ligatures";
 
 /* Class = "NSComboBoxCell"; placeholderString = "设备推送token"; ObjectID = "oW7-7V-9OI"; */
-"oW7-7V-9OI.placeholderString" = "Device push token";
+"oW7-7V-9OI.placeholderString" = "设备推送token";
 
 /* Class = "NSComboBoxCell"; oW7-7V-9OI.ibShadowedObjectValues[0] = "Item 1"; ObjectID = "oW7-7V-9OI"; */
 "oW7-7V-9OI.ibShadowedObjectValues[0]" = "Item 1";
@@ -420,7 +420,7 @@
 "q09-fT-Sye.title" = "Find Next";
 
 /* Class = "NSMenuItem"; title = "Expiry: None"; ObjectID = "q1g-Ie-Kkx"; */
-"q1g-Ie-Kkx.title" = "Expiry: None";
+"q1g-Ie-Kkx.title" = "到期时间: 无";
 
 /* Class = "NSMenuItem"; title = "Page Setup…"; ObjectID = "qIS-W8-SiK"; */
 "qIS-W8-SiK.title" = "Page Setup…";
@@ -453,7 +453,7 @@
 "uRl-iY-unG.title" = "Cut";
 
 /* Class = "NSMenuItem"; title = "Immediately(10)"; ObjectID = "uVR-qH-mmQ"; */
-"uVR-qH-mmQ.title" = "Immediately(10)";
+"uVR-qH-mmQ.title" = "即时(10)";
 
 /* Class = "NSMenuItem"; title = "Paste Style"; ObjectID = "vKC-jM-MkH"; */
 "vKC-jM-MkH.title" = "Paste Style";
@@ -471,10 +471,10 @@
 "w0m-vy-SC9.title" = "Ligatures";
 
 /* Class = "NSMenuItem"; title = "Far future(2^32-1)"; ObjectID = "wL7-It-e57"; */
-"wL7-It-e57.title" = "Far future(2^32-1)";
+"wL7-It-e57.title" = "未来(2^32-1)";
 
 /* Class = "NSButtonCell"; title = "重         连"; ObjectID = "wN2-7y-XR4"; */
-"wN2-7y-XR4.title" = "Reconnect";
+"wN2-7y-XR4.title" = "重         连";
 
 /* Class = "NSMenuItem"; title = "Align Right"; ObjectID = "wb2-vD-lq4"; */
 "wb2-vD-lq4.title" = "Align Right";

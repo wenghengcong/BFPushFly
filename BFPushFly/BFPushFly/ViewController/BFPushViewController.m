@@ -243,7 +243,8 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         //NSLog(@"failed notification: %@ %@ %lu %lu %lu", notification.payload, notification.token, notification.identifier, notification.expires, notification.priority);
-        NWLogWarn(@"Notification error: %@", error.localizedDescription);
+        NSString *log = NSLocalizedFormatString(@"Notification error: %@", error.localizedDescription);
+        NWLogWarn(@"%@", log);
     });
 }
 
@@ -299,7 +300,8 @@
     if (_tokenList == nil) {
         _tokenList = [NSDictionary dictionary];
     }
-    NWLogInfo(@"Loaded config from %@", _tokenList);
+    NSString *log = NSLocalizedFormatString(@"Loaded config from %@", _tokenList);
+    NWLogInfo(@"%@", log);
 }
 
 - (void)saveTokenList
@@ -354,10 +356,11 @@
     NSError *error = nil;
     NSArray *certs = [NWSecTools keychainCertificatesWithError:&error];
     if (!certs) {
-        NWLogWarn(@"Unable to access keychain: %@", error.localizedDescription);
+        NSString *str = NSLocalizedFormatString(@"Unable to access keychain: %@", error.localizedDescription);
+        NWLogWarn(@"%@", str);
     }
     if (!certs.count) {
-        NWLogWarn(@"No push certificates in keychain.");
+        NWLogWarn(@"%@", NSLocalizedString(@"No push certificates in keychain.",nil));
     }
     certs = [certs sortedArrayUsingComparator:^NSComparisonResult(NWCertificateRef a, NWCertificateRef b) {
         NWEnvironmentOptions envOptionsA = [NWSecTools environmentOptionsForCertificate:a];
@@ -380,7 +383,7 @@
 {
     NSMutableString *suffix = @" ".mutableCopy;
     [_certificatePopup removeAllItems];
-    [_certificatePopup addItemWithTitle:@"Select Push Certificate"];
+    [_certificatePopup addItemWithTitle:NSLocalizedString(@"Select Push Certificate",nil)];
     NSDateFormatter* formatter = [[NSDateFormatter alloc] init];
     [formatter setDateStyle:NSDateFormatterShortStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
@@ -397,7 +400,7 @@
         [_certificatePopup addItemWithTitle:[NSString stringWithFormat:@"%@%@ (%@ %@)%@%@", hasIdentity ? @"imported: " : @"", summary, type, descriptionForEnvironentOptions(environmentOptions), expire, suffix]];
         [suffix appendString:@" "];
     }
-    [_certificatePopup addItemWithTitle:@"Import PKCS #12 file (.p12)..."];
+    [_certificatePopup addItemWithTitle:NSLocalizedString(@"Import PKCS #12 file (.p12)...", nil)];
 }
 
 - (void)importIdentity
@@ -414,8 +417,8 @@
         }
         NSMutableArray *pairs = @[].mutableCopy;
         for (NSURL *url in panel.URLs) {
-            NSString *text = [NSString stringWithFormat:@"Enter password for %@", url.lastPathComponent];
-            NSAlert *alert = [NSAlert alertWithMessageText:text defaultButton:@"OK" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@""];
+            NSString *text = [NSString stringWithFormat:@"%@ %@",NSLocalizedString(@"Enter password for",nil) ,url.lastPathComponent];
+            NSAlert *alert = [NSAlert alertWithMessageText:text defaultButton:NSLocalizedString(@"OK",nil) alternateButton:NSLocalizedString(@"Cancel",nil) otherButton:nil informativeTextWithFormat:@""];
             NSSecureTextField *input = [[NSSecureTextField alloc] initWithFrame:NSMakeRect(0, 0, 200, 24)];
             alert.accessoryView = input;
             NSInteger button = [alert runModal];
@@ -430,24 +433,24 @@
                 ids = [NWSecTools identitiesWithPKCS12Data:data password:nil error:&error];
             }
             if (!ids) {
-                NWLogWarn(@"Unable to read p12 file: %@", error.localizedDescription);
+                NWLogWarn(@"%@", NSLocalizedFormatString(@"Unable to read p12 file: %@", error.localizedDescription));
                 return;
             }
             for (NWIdentityRef identity in ids) {
                 NSError *error = nil;
                 NWCertificateRef certificate = [NWSecTools certificateWithIdentity:identity error:&error];
                 if (!certificate) {
-                    NWLogWarn(@"Unable to import p12 file: %@", error.localizedDescription);
+                    NWLogWarn(@"%@", NSLocalizedFormatString(@"Unable to import p12 file: %@", error.localizedDescription));
                     return;
                 }
                 [pairs addObject:@[certificate, identity]];
             }
         }
         if (!pairs.count) {
-            NWLogWarn(@"Unable to import p12 file: no push certificates found");
+            NWLogWarn(@"%@", NSLocalizedString(@"Unable to import p12 file: no push certificates found", nil));
             return;
         }
-        NWLogInfo(@"Imported %i certificate%@", (int)pairs.count, pairs.count == 1 ? @"" : @"s");
+        NWLogInfo(@"%@", NSLocalizedFormatString(@"Imported %i certificate%@", (int)pairs.count, pairs.count == 1 ? @"" : @"s"));
         NSUInteger index = _certificateIdentityPairs.count;
         _certificateIdentityPairs = [_certificateIdentityPairs arrayByAddingObjectsFromArray:pairs];
         [self updateCertificatePopup];
@@ -568,7 +571,7 @@
         [_hub disconnect]; _hub = nil;
         
         [self disableButtons];
-        NWLogInfo(@"Disconnected from APN");
+        NWLogInfo(@"%@", NSLocalizedString(@"Disconnected from APN", nil));
     }
     
     _selectedCertificate = certificate;
@@ -577,7 +580,7 @@
     if (certificate) {
         
         NSString *summary = [NWSecTools summaryWithCertificate:certificate];
-        NWLogInfo(@"Connecting to APN...  (%@ %@)", summary, descriptionForEnvironent(environment));
+        NWLogInfo(@"%@", NSLocalizedFormatString(@"Connecting to APN...  (%@ %@)", summary, descriptionForEnvironent(environment)));
         
         dispatch_async(_serial, ^{
             NSError *error = nil;
@@ -585,12 +588,12 @@
             NWHub *hub = [NWHub connectWithDelegate:self identity:ident environment:environment error:&error];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (hub) {
-                    NWLogInfo(@"Connected  (%@ %@)", summary, descriptionForEnvironent(environment));
+                    NWLogInfo(@"%@", NSLocalizedFormatString(@"Connected  (%@ %@)", summary, descriptionForEnvironent(environment)) );
                     _hub = hub;
                     
                     [self enableButtonsForCertificate:certificate environment:environment];
                 } else {
-                    NWLogWarn(@"Unable to connect: %@", error.localizedDescription);
+                    NWLogWarn(@"%@", NSLocalizedFormatString(@"Unable to connect: %@", error.localizedDescription));
                     [hub disconnect];
                     [_certificatePopup selectItemAtIndex:0];
                 }
@@ -605,7 +608,7 @@
     NSString *summary = [NWSecTools summaryWithCertificate:_selectedCertificate];
     NWEnvironment environment = [self selectedEnvironmentForCertificate:_selectedCertificate];
     
-    NWLogInfo(@"Reconnecting to APN...(%@ %@)", summary, descriptionForEnvironent(environment));
+    NWLogInfo(@"%@", NSLocalizedFormatString(@"Reconnecting to APN...(%@ %@)", summary, descriptionForEnvironent(environment)));
     
     [self selectCertificate:_selectedCertificate identity:nil  environment:environment];
 }
@@ -616,7 +619,7 @@
     NSString *token = _tokenCombo.stringValue;
     NSDate *expiry =  [self selectedExpiry];
     NSUInteger priority = [self selectedPriority];
-    NWLogInfo(@"Pushing..");
+    NWLogInfo(@"%@", NSLocalizedString(@"Pushing..",nil));
     dispatch_async(_serial, ^{
         NWNotification *notification = [[NWNotification alloc] initWithPayload:payload token:token identifier:0 expiration:expiry priority:priority];
         NSError *error = nil;
@@ -628,14 +631,14 @@
                 NWNotification *failed = nil;
                 BOOL read = [_hub readFailed:&failed autoReconnect:YES error:&error];
                 if (read) {
-                    if (!failed) NWLogInfo(@"Payload has been pushed");
+                    if (!failed) NWLogInfo(@"%@", NSLocalizedString(@"Payload has been pushed", nil));
                 } else {
-                    NWLogWarn(@"Unable to read: %@", error.localizedDescription);
+                    NWLogWarn(@"%@", NSLocalizedFormatString(@"Unable to read: %@", error.localizedDescription));
                 }
                 [_hub trimIdentifiers];
             });
         } else {
-            NWLogWarn(@"Unable to push: %@", error.localizedDescription);
+            NWLogWarn(@"%@", NSLocalizedFormatString(@"Unable to push: %@", error.localizedDescription));
         }
     });
 }
@@ -645,32 +648,32 @@
     dispatch_async(_serial, ^{
         NWCertificateRef certificate = _selectedCertificate;
         if (!certificate) {
-            NWLogWarn(@"Unable to connect to feedback service: no certificate selected");
+            NWLogWarn(@"%@", NSLocalizedString(@"Unable to connect to feedback service: no certificate selected", nil));
             return;
         }
         NWEnvironment environment = [self selectedEnvironmentForCertificate:certificate];
         NSString *summary = [NWSecTools summaryWithCertificate:certificate];
-        NWLogInfo(@"Connecting to feedback service..  (%@ %@)", summary, descriptionForEnvironent(environment));
+        NWLogInfo(@"%@", NSLocalizedFormatString(@"Connecting to feedback service..  (%@ %@)", summary, descriptionForEnvironent(environment)));
         NSError *error = nil;
         NWIdentityRef identity = [NWSecTools keychainIdentityWithCertificate:_selectedCertificate error:&error];
         NWPushFeedback *feedback = [NWPushFeedback connectWithIdentity:identity environment:[self selectedEnvironmentForCertificate:certificate] error:&error];
         if (!feedback) {
-            NWLogWarn(@"Unable to connect to feedback service: %@", error.localizedDescription);
+            NWLogWarn(@"%@", NSLocalizedFormatString(@"Unable to connect to feedback service: %@", error.localizedDescription));
             return;
         }
-        NWLogInfo(@"Reading feedback service..  (%@ %@)", summary, descriptionForEnvironent(environment));
+        NWLogInfo(@"%@", NSLocalizedFormatString(@"Reading feedback service..  (%@ %@)", summary, descriptionForEnvironent(environment)));
         NSArray *pairs = [feedback readTokenDatePairsWithMax:1000 error:&error];
         if (!pairs) {
-            NWLogWarn(@"Unable to read feedback: %@", error.localizedDescription);
+            NWLogWarn(@"%@", NSLocalizedFormatString(@"Unable to read feedback: %@", error.localizedDescription));
             return;
         }
         for (NSArray *pair in pairs) {
-            NWLogInfo(@"token: %@  date: %@", pair[0], pair[1]);
+            NWLogInfo(@"%@", NSLocalizedFormatString(@"token: %@  date: %@", pair[0], pair[1]));
         }
         if (pairs.count) {
-            NWLogInfo(@"Feedback service returned %i device tokens, see logs for details", (int)pairs.count);
+            NWLogInfo(@"%@", NSLocalizedFormatString(@"Feedback service returned %i device tokens, see logs for details", (int)pairs.count));
         } else {
-            NWLogInfo(@"Feedback service returned zero device tokens");
+            NWLogInfo(@"%@", NSLocalizedString(@"Feedback service returned zero device tokens",nil));
         }
     });
 }

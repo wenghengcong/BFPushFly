@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  BFPushFly
+
+  Created by WengHengcong on 2018/9/22.
+  Copyright © 2018年 翁恒丛. All rights reserved.
+*/
+
+"Select Push Certificate" = "Select Push Certificate";
+"Import PKCS #12 file (.p12)..."="Import PKCS #12 file (.p12)...";
+
+"Enter password for"="Enter password for";
+"OK"="OK";
+"Cancel"="Cancel";
+"Unable to import p12 file: no push certificates found" = "Unable to import p12 file: no push certificates found";
+"Notification error: %@" = "Notification error: %@";
+"Loaded config from %@" = "Loaded config from %@";
+"Unable to access keychain: %@" = "Unable to access keychain: %@";
+"No push certificates in keychain." = "No push certificates in keychain.";
+"Unable to read p12 file: %@" = "Unable to read p12 file: %@";
+"Unable to import p12 file: %@" = "Unable to import p12 file: %@";
+"Unable to import p12 file: no push certificates found" = "Unable to import p12 file: no push certificates found";
+"Imported %i certificate%@" = "Imported %i certificate%@";
+"malformed" = "malformed";
+"Disconnected from APN" = "Disconnected from APN";
+"Connecting to APN...  (%@ %@)" = "Connecting to APN...  (%@ %@)";
+"Connected  (%@ %@)" = "Connected  (%@ %@)";
+"Unable to connect: %@" = "Unable to connect: %@";
+"Reconnecting to APN...(%@ %@)" = "Reconnecting to APN...(%@ %@)";
+"Pushing.." = "Pushing..";
+"Payload has been pushed" = "Payload has been pushed";
+"Unable to read: %@" = "Unable to read: %@";
+"Unable to push: %@" = "Unable to push: %@";
+"Unable to connect to feedback service: no certificate selected" = "Unable to connect to feedback service: no certificate selected";
+"Connecting to feedback service..  (%@ %@)" = "Connecting to feedback service..  (%@ %@)";
+"Unable to connect to feedback service: %@" = "Unable to connect to feedback service: %@";
+"Reading feedback service..  (%@ %@)" = "Reading feedback service..  (%@ %@)";
+"Unable to read feedback: %@" = "Unable to read feedback: %@";
+"token: %@  date: %@" = "token: %@  date: %@";
+"Feedback service returned %i device tokens, see logs for details" = "Feedback service returned %i device tokens, see logs for details";
+"Feedback service returned zero device tokens" = "Feedback service returned zero device tokens";
+

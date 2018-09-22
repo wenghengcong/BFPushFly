@@ -1,0 +1,42 @@
+/* 
+  Localizable.strings
+  BFPushFly
+
+  Created by WengHengcong on 2018/9/22.
+  Copyright © 2018年 翁恒丛. All rights reserved.
+*/
+
+"Select Push Certificate" = "选择推送证书";
+"Import PKCS #12 file (.p12)..."="导入 PKCS #12 文件(.p12)";
+
+"Enter password for"="输入密码";
+"OK"="确定";
+"Cancel"="取消";
+
+"Notification error: %@" = "推送错误: %@";
+"Loaded config from %@" = "加载配置 %@ ";
+"Unable to access keychain: %@" = "未能从钥匙串获取: %@";
+"No push certificates in keychain." = "在钥匙串为找到证书.";
+"Unable to read p12 file: %@" = "Unable to read p12 file: %@";
+"Unable to import p12 file: %@" = "无法导入p12证书: %@";
+"Unable to import p12 file: no push certificates found" = "无法导入p12证书: 未找到推送证书";
+"Imported %i certificate%@" = "导入 %i 证书%@";
+"malformed" = "格式错误";
+"Disconnected from APN" = "与APNs端口连接";
+"Connecting to APN...  (%@ %@)" = "连接APNs...  (%@ %@)";
+"Connected  (%@ %@)" = "已连接  (%@ %@)";
+"Unable to connect: %@" = "无法连接: %@";
+"Reconnecting to APN...(%@ %@)" = "重连APNs...(%@ %@)";
+"Pushing.." = "发送中..";
+"Payload has been pushed" = "推送Payload已发送";
+"Unable to read: %@" = "Unable to read: %@";
+"Unable to push: %@" = "无法推送: %@";
+"Unable to connect to feedback service: no certificate selected" = "Unable to connect to feedback service: no certificate selected";
+"Connecting to feedback service..  (%@ %@)" = "Connecting to feedback service..  (%@ %@)";
+"Unable to connect to feedback service: %@" = "Unable to connect to feedback service: %@";
+"Reading feedback service..  (%@ %@)" = "Reading feedback service..  (%@ %@)";
+"Unable to read feedback: %@" = "Unable to read feedback: %@";
+"token: %@  date: %@" = "token: %@  date: %@";
+"Feedback service returned %i device tokens, see logs for details" = "Feedback service returned %i device tokens, see logs for details";
+"Feedback service returned zero device tokens" = "Feedback service returned zero device tokens";
+
