@@ -39,7 +39,7 @@ extern "C" {
 #if DEBUG
 #define NWL_ACTIVE 1
 #else // DEBUG
-#define NWL_ACTIVE 0
+#define NWL_ACTIVE 1
 #endif // DEBUG
 #define NWL_LIB_STR NULL
 
@@ -283,11 +283,13 @@ void NWLBreakInDebugger(void);
 extern void NWLDump(void);
 extern void NWLDumpFlags(int active, const char *lib, int debug, const char *file, int line, const char *function);
 extern void NWLDumpConfig(void);
+    
 #if DEBUG
 #define NWL_DEBUG 1
 #else // DEBUG
-#define NWL_DEBUG 0
+#define NWL_DEBUG 1
 #endif // DEBUG
+    
 #define NWLDump() do {NWLDumpFlags(NWL_ACTIVE, NWL_LIB_STR, NWL_DEBUG, _NWL_FILE_, __LINE__, __PRETTY_FUNCTION__);NWLDumpConfig();} while (0)
 
 

@@ -1,92 +1,92 @@
-2018-09-22 06:50:57 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7fc8055238a0; archive(resolved)='<IDEArchive: 0x7fc801085130>', distributionTask(resolved)='2', distributionDestination(resolved)='1', distributionMethod(resolved)='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team(resolved)='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
+2018-09-23 07:39:59 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7fc8048e6c20; archive(resolved)='<IDEArchive: 0x7fc804f184b0>', distributionTask(resolved)='2', distributionDestination(resolved)='1', distributionMethod(resolved)='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team(resolved)='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
 	Chain (11, self inclusive):
-	<IDEDistributionProcessingPipelineContext: 0x7fc8055238a0; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
-	<IDEDistributionProcessingPipelineContext: 0x7fc8019baba0; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
-	<IDEDistributionContext: 0x7fc81cc68c40; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
-	<IDEDistributionContext: 0x7fc7fe4b7460; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
-	<IDEDistributionContext: 0x7fc81ce410a0; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
-	<IDEDistributionContext: 0x7fc804cb3500; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
-	<IDEDistributionContext: 0x7fc804c3f0a0; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
-	<IDEDistributionContext: 0x7fc802eebf30; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
-	<IDEDistributionContext: 0x7fc81aa6eb90; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='(null)'>
-	<IDEDistributionContext: 0x7fc804c27bd0; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='(null)'>
-	<IDEDistributionContext: 0x7fc81e0faf60; archive = '<IDEArchive: 0x7fc801085130>', distributionMethod='(null)', team='(null)'>
-</IDEDistributionProcessingPipelineContext: 0x7fc8055238a0>
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionCreateDestRootStep
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionCopyItemStep
-2018-09-22 06:50:57 +0000  Running /usr/bin/ditto '-V' '/Users/wenghengcong/Library/Developer/Xcode/Archives/2018-09-22/BFPushFly 2018-9-22 14.50.xcarchive/Products/Applications/PushFly.app' '/var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.79d/Root/Applications/PushFly.app'
-2018-09-22 06:50:57 +0000  >>> Copying /Users/wenghengcong/Library/Developer/Xcode/Archives/2018-09-22/BFPushFly 2018-9-22 14.50.xcarchive/Products/Applications/PushFly.app 
-2018-09-22 06:50:57 +0000  copying file ./Contents/_CodeSignature/CodeResources ... 
-2018-09-22 06:50:57 +0000  8122 bytes for ./Contents/_CodeSignature/CodeResources
-2018-09-22 06:50:57 +0000  copying file ./Contents/MacOS/PushFly ... 
-2018-09-22 06:50:57 +0000  179056 bytes for ./Contents/MacOS/PushFly
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/zh-Hans.lproj/Main.strings ... 
-2018-09-22 06:50:57 +0000  18743 bytes for ./Contents/Resources/zh-Hans.lproj/Main.strings
-copying file ./Contents/Resources/zh-Hans.lproj/Localizable.strings ... 
-2018-09-22 06:50:57 +0000  4194 bytes for ./Contents/Resources/zh-Hans.lproj/Localizable.strings
-copying file ./Contents/Resources/zh-Hans.lproj/defaultTemplate.plist ... 
-2018-09-22 06:50:57 +0000  3283 bytes for ./Contents/Resources/zh-Hans.lproj/defaultTemplate.plist
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/en.lproj/Main.strings ... 
-2018-09-22 06:50:57 +0000  18741 bytes for ./Contents/Resources/en.lproj/Main.strings
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/en.lproj/Localizable.strings ... 
-2018-09-22 06:50:57 +0000  5132 bytes for ./Contents/Resources/en.lproj/Localizable.strings
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/en.lproj/defaultTemplate.plist ... 
-2018-09-22 06:50:57 +0000  3288 bytes for ./Contents/Resources/en.lproj/defaultTemplate.plist
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/AppIcon.icns ... 
-2018-09-22 06:50:57 +0000  190386 bytes for ./Contents/Resources/AppIcon.icns
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/Base.lproj/Main.storyboardc/Klu-ux-S9G-view-Fix-js-pfK.nib ... 
-2018-09-22 06:50:57 +0000  33864 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/Klu-ux-S9G-view-Fix-js-pfK.nib
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/Base.lproj/Main.storyboardc/MainMenu.nib ... 
-2018-09-22 06:50:57 +0000  36175 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/MainMenu.nib
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib ... 
-2018-09-22 06:50:57 +0000  56348 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib ... 
-2018-09-22 06:50:57 +0000  5536 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/Base.lproj/Main.storyboardc/Info.plist ... 
-2018-09-22 06:50:57 +0000  586 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/Info.plist
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/Base.lproj/Main.storyboardc/NSViewController-Klu-ux-S9G.nib ... 
-2018-09-22 06:50:57 +0000  1805 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/NSViewController-Klu-ux-S9G.nib
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/Base.lproj/defaultTemplate.plist ... 
-2018-09-22 06:50:57 +0000  3283 bytes for ./Contents/Resources/Base.lproj/defaultTemplate.plist
-2018-09-22 06:50:57 +0000  copying file ./Contents/Resources/Assets.car ... 
-2018-09-22 06:50:57 +0000  209944 bytes for ./Contents/Resources/Assets.car
-2018-09-22 06:50:57 +0000  copying file ./Contents/Info.plist ... 
-2018-09-22 06:50:57 +0000  1709 bytes for ./Contents/Info.plist
-2018-09-22 06:50:57 +0000  copying file ./Contents/PkgInfo ... 
-2018-09-22 06:50:57 +0000  8 bytes for ./Contents/PkgInfo
-2018-09-22 06:50:57 +0000  /usr/bin/ditto exited with 0
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionEmbedProfileStep
-2018-09-22 06:50:57 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fc804bf7200 'com.luci.pushfly' '<DVTFilePath:0x7fc8011a6b50:'/Users/wenghengcong/Library/Developer/Xcode/Archives/2018-09-22/BFPushFly 2018-9-22 14.50.xcarchive/Products/Applications/PushFly.app'>'>
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionAppThinningPlistStep
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionCompileBitcodeStep
-2018-09-22 06:50:57 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionCodeSlimmingStep
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
-2018-09-22 06:50:57 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionSymbolsStep
-2018-09-22 06:50:57 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionAppThinningStep
-2018-09-22 06:50:57 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionODRStep
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionStripXattrsStep
-2018-09-22 06:50:57 +0000  Running /usr/bin/xattr '-crs' '/var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.79d/Root/Applications/PushFly.app'
-2018-09-22 06:50:57 +0000  /usr/bin/xattr exited with 0
-2018-09-22 06:50:57 +0000  Processing step: IDEDistributionCodesignStep
-2018-09-22 06:50:57 +0000  Entitlements for <IDEDistributionItem: 0x7fc804bf7200 'com.luci.pushfly' '<DVTFilePath:0x7fc8011a6b50:'/Users/wenghengcong/Library/Developer/Xcode/Archives/2018-09-22/BFPushFly 2018-9-22 14.50.xcarchive/Products/Applications/PushFly.app'>'>: {
+	<IDEDistributionProcessingPipelineContext: 0x7fc8048e6c20; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionProcessingPipelineContext: 0x7fc804a8b940; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fc81aa83ca0; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fc7fff97400; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fc7ffde84a0; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fc80578d210; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fc801b34ef0; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fc81c859660; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='<IDEProvisioningDisambiguatableBasicTeam: 0x7fc819de5b10; teamID='69XHTLCF36', teamName='Hengcong Weng', teamType='Individual', username='wenghengcong@icloud.com', isFreeProvisioningTeam='0'>'>
+	<IDEDistributionContext: 0x7fc81aacc110; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='(null)'>
+	<IDEDistributionContext: 0x7fc802eafa80; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='<IDEDistributionMethodDeveloperID: 0x7fc7fe54b330>', team='(null)'>
+	<IDEDistributionContext: 0x7fc81e0afed0; archive = '<IDEArchive: 0x7fc804f184b0>', distributionMethod='(null)', team='(null)'>
+</IDEDistributionProcessingPipelineContext: 0x7fc8048e6c20>
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionCreateDestRootStep
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionCopyItemStep
+2018-09-23 07:39:59 +0000  Running /usr/bin/ditto '-V' '/Users/wenghengcong/Library/Developer/Xcode/Archives/2018-09-23/PushFly 2018-9-23 15.39.xcarchive/Products/Applications/PushFly.app' '/var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.eGh/Root/Applications/PushFly.app'
+2018-09-23 07:39:59 +0000  >>> Copying /Users/wenghengcong/Library/Developer/Xcode/Archives/2018-09-23/PushFly 2018-9-23 15.39.xcarchive/Products/Applications/PushFly.app 
+2018-09-23 07:39:59 +0000  copying file ./Contents/_CodeSignature/CodeResources ... 
+2018-09-23 07:39:59 +0000  8122 bytes for ./Contents/_CodeSignature/CodeResources
+2018-09-23 07:39:59 +0000  copying file ./Contents/MacOS/PushFly ... 
+2018-09-23 07:39:59 +0000  187360 bytes for ./Contents/MacOS/PushFly
+2018-09-23 07:39:59 +0000  copying file ./Contents/Resources/zh-Hans.lproj/Main.strings ... 
+2018-09-23 07:39:59 +0000  18743 bytes for ./Contents/Resources/zh-Hans.lproj/Main.strings
+2018-09-23 07:39:59 +0000  copying file ./Contents/Resources/zh-Hans.lproj/Localizable.strings ... 
+2018-09-23 07:39:59 +0000  4194 bytes for ./Contents/Resources/zh-Hans.lproj/Localizable.strings
+2018-09-23 07:39:59 +0000  copying file ./Contents/Resources/zh-Hans.lproj/defaultTemplate.plist ... 
+2018-09-23 07:39:59 +0000  3283 bytes for ./Contents/Resources/zh-Hans.lproj/defaultTemplate.plist
+2018-09-23 07:39:59 +0000  copying file ./Contents/Resources/en.lproj/Main.strings ... 
+2018-09-23 07:39:59 +0000  18741 bytes for ./Contents/Resources/en.lproj/Main.strings
+copying file ./Contents/Resources/en.lproj/Localizable.strings ... 
+2018-09-23 07:39:59 +0000  5132 bytes for ./Contents/Resources/en.lproj/Localizable.strings
+2018-09-23 07:39:59 +0000  copying file ./Contents/Resources/en.lproj/defaultTemplate.plist ... 
+2018-09-23 07:39:59 +0000  3288 bytes for ./Contents/Resources/en.lproj/defaultTemplate.plist
+2018-09-23 07:39:59 +0000  copying file ./Contents/Resources/AppIcon.icns ... 
+2018-09-23 07:39:59 +0000  220589 bytes for ./Contents/Resources/AppIcon.icns
+2018-09-23 07:39:59 +0000  copying file ./Contents/Resources/Base.lproj/Main.storyboardc/Klu-ux-S9G-view-Fix-js-pfK.nib ... 
+2018-09-23 07:39:59 +0000  33864 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/Klu-ux-S9G-view-Fix-js-pfK.nib
+copying file ./Contents/Resources/Base.lproj/Main.storyboardc/MainMenu.nib ... 
+2018-09-23 07:39:59 +0000  36175 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/MainMenu.nib
+2018-09-23 07:39:59 +0000  copying file ./Contents/Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib ... 
+2018-09-23 07:39:59 +0000  56348 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib
+copying file ./Contents/Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib ... 
+2018-09-23 07:39:59 +0000  5536 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib
+copying file ./Contents/Resources/Base.lproj/Main.storyboardc/Info.plist ... 
+2018-09-23 07:39:59 +0000  586 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/Info.plist
+copying file ./Contents/Resources/Base.lproj/Main.storyboardc/NSViewController-Klu-ux-S9G.nib ... 
+2018-09-23 07:39:59 +0000  1805 bytes for ./Contents/Resources/Base.lproj/Main.storyboardc/NSViewController-Klu-ux-S9G.nib
+2018-09-23 07:39:59 +0000  copying file ./Contents/Resources/Base.lproj/defaultTemplate.plist ... 
+2018-09-23 07:39:59 +0000  3283 bytes for ./Contents/Resources/Base.lproj/defaultTemplate.plist
+2018-09-23 07:39:59 +0000  copying file ./Contents/Resources/Assets.car ... 
+2018-09-23 07:39:59 +0000  238312 bytes for ./Contents/Resources/Assets.car
+2018-09-23 07:39:59 +0000  copying file ./Contents/Info.plist ... 
+2018-09-23 07:39:59 +0000  1710 bytes for ./Contents/Info.plist
+2018-09-23 07:39:59 +0000  copying file ./Contents/PkgInfo ... 
+2018-09-23 07:39:59 +0000  8 bytes for ./Contents/PkgInfo
+2018-09-23 07:39:59 +0000  /usr/bin/ditto exited with 0
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionEmbedProfileStep
+2018-09-23 07:39:59 +0000  Skipping profile for item: <IDEDistributionItem: 0x7fc81ced6070 'com.luci.pushfly' '<DVTFilePath:0x7fc804a6a9b0:'/Users/wenghengcong/Library/Developer/Xcode/Archives/2018-09-23/PushFly 2018-9-23 15.39.xcarchive/Products/Applications/PushFly.app'>'>
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2018-09-23 07:39:59 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2018-09-23 07:39:59 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionSymbolsStep
+2018-09-23 07:39:59 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionAppThinningStep
+2018-09-23 07:39:59 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionODRStep
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionStripXattrsStep
+2018-09-23 07:39:59 +0000  Running /usr/bin/xattr '-crs' '/var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.eGh/Root/Applications/PushFly.app'
+2018-09-23 07:39:59 +0000  /usr/bin/xattr exited with 0
+2018-09-23 07:39:59 +0000  Processing step: IDEDistributionCodesignStep
+2018-09-23 07:39:59 +0000  Entitlements for <IDEDistributionItem: 0x7fc81ced6070 'com.luci.pushfly' '<DVTFilePath:0x7fc804a6a9b0:'/Users/wenghengcong/Library/Developer/Xcode/Archives/2018-09-23/PushFly 2018-9-23 15.39.xcarchive/Products/Applications/PushFly.app'>'>: {
     "com.apple.security.app-sandbox" = 1;
     "com.apple.security.files.user-selected.read-write" = 1;
     "com.apple.security.network.client" = 1;
     "com.apple.security.network.server" = 1;
 }
-2018-09-22 06:50:57 +0000  Writing entitlements for <IDEDistributionItem: 0x7fc804bf7200 'com.luci.pushfly' '<DVTFilePath:0x7fc8011a6b50:'/Users/wenghengcong/Library/Developer/Xcode/Archives/2018-09-22/BFPushFly 2018-9-22 14.50.xcarchive/Products/Applications/PushFly.app'>'> to: /var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.79d/entitlementsuaEVf3
-2018-09-22 06:50:57 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '0B3589400B49344F2D820ACD4FA457A60862EAB3' '--entitlements' '/var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.79d/entitlementsuaEVf3' '--preserve-metadata=identifier,flags,runtime' '--requirements' '=designated => anchor apple generic  and identifier "$self.identifier" and ((cert leaf[field.1.2.840.113635.100.6.1.9] exists) or ( certificate 1[field.1.2.840.113635.100.6.2.6] exists and certificate leaf[field.1.2.840.113635.100.6.1.13] exists  and certificate leaf[subject.OU] = "69XHTLCF36" ))' '/var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.79d/Root/Applications/PushFly.app'
-2018-09-22 06:50:57 +0000  /var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.79d/Root/Applications/PushFly.app: replacing existing signature
-2018-09-22 06:50:58 +0000  /var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.79d/Root/Applications/PushFly.app: signed app bundle with Mach-O thin (x86_64) [com.luci.pushfly]
-2018-09-22 06:50:58 +0000  /usr/bin/codesign exited with 0
-2018-09-22 06:50:58 +0000  Processing step: IDEDistributionZipODRItemStep
-2018-09-22 06:50:58 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
-2018-09-22 06:50:58 +0000  Processing step: IDEDistributionSkipPackagingStep
-2018-09-22 06:50:58 +0000  Processing step: IDEDistributionAppStoreInformationStep
-2018-09-22 06:50:58 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
-2018-09-22 06:50:58 +0000  Processing step: IDEDistributionCreateManifestStep
-2018-09-22 06:50:58 +0000  Skipping step: IDEDistributionCreateManifestStep because it said so
+2018-09-23 07:39:59 +0000  Writing entitlements for <IDEDistributionItem: 0x7fc81ced6070 'com.luci.pushfly' '<DVTFilePath:0x7fc804a6a9b0:'/Users/wenghengcong/Library/Developer/Xcode/Archives/2018-09-23/PushFly 2018-9-23 15.39.xcarchive/Products/Applications/PushFly.app'>'> to: /var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.eGh/entitlementsKB2pl7
+2018-09-23 07:39:59 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' '0B3589400B49344F2D820ACD4FA457A60862EAB3' '--entitlements' '/var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.eGh/entitlementsKB2pl7' '--preserve-metadata=identifier,flags,runtime' '--requirements' '=designated => anchor apple generic  and identifier "$self.identifier" and ((cert leaf[field.1.2.840.113635.100.6.1.9] exists) or ( certificate 1[field.1.2.840.113635.100.6.2.6] exists and certificate leaf[field.1.2.840.113635.100.6.1.13] exists  and certificate leaf[subject.OU] = "69XHTLCF36" ))' '/var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.eGh/Root/Applications/PushFly.app'
+2018-09-23 07:39:59 +0000  /var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.eGh/Root/Applications/PushFly.app: replacing existing signature
+2018-09-23 07:40:00 +0000  /var/folders/vx/b9xvt9pn7rnfbdlljj6tyqc40000gn/T/XcodeDistPipeline.eGh/Root/Applications/PushFly.app: signed app bundle with Mach-O thin (x86_64) [com.luci.pushfly]
+2018-09-23 07:40:00 +0000  /usr/bin/codesign exited with 0
+2018-09-23 07:40:00 +0000  Processing step: IDEDistributionZipODRItemStep
+2018-09-23 07:40:00 +0000  Skipping step: IDEDistributionZipODRItemStep because it said so
+2018-09-23 07:40:00 +0000  Processing step: IDEDistributionSkipPackagingStep
+2018-09-23 07:40:00 +0000  Processing step: IDEDistributionAppStoreInformationStep
+2018-09-23 07:40:00 +0000  Skipping step: IDEDistributionAppStoreInformationStep because it said so
+2018-09-23 07:40:00 +0000  Processing step: IDEDistributionCreateManifestStep
+2018-09-23 07:40:00 +0000  Skipping step: IDEDistributionCreateManifestStep because it said so
