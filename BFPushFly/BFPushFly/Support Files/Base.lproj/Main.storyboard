@@ -789,7 +789,7 @@
                                                     </subviews>
                                                 </clipView>
                                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="4zz-BN-J6X">
-                                                    <rect key="frame" x="1" y="492" width="226" height="16"/>
+                                                    <rect key="frame" x="1" y="-15" width="0.0" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="1uE-ys-hGk">
@@ -1651,6 +1651,7 @@
                                                         <textView ambiguous="YES" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="SxG-yX-quk">
                                                             <rect key="frame" x="0.0" y="0.0" width="726" height="467"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <size key="minSize" width="726" height="467"/>
                                                             <size key="maxSize" width="753" height="10000000"/>
@@ -1725,7 +1726,7 @@
                                         </connections>
                                     </popUpButton>
                                     <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ine-Ta-bQa">
-                                        <rect key="frame" x="20" y="11" width="663" height="26"/>
+                                        <rect key="frame" x="20" y="11" width="663" height="23"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" alignment="left" placeholderString="设备推送token" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="oW7-7V-9OI">
                                             <font key="font" metaFont="system"/>
@@ -1815,7 +1816,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     </box>
                                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yqJ-xy-aq3">
-                                        <rect key="frame" x="915" y="17" width="75" height="66"/>
+                                        <rect key="frame" x="914" y="8" width="72" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="fly" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="ZmM-dr-VIK">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1841,6 +1842,15 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
+                                    <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="at9-1F-o3D">
+                                        <rect key="frame" x="908" y="72" width="85" height="22"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="发送数目" drawsBackground="YES" id="5z7-7w-NXM">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                             </customView>
                         </subviews>
@@ -1856,6 +1866,7 @@
                         <outlet property="payloadField" destination="yZD-df-Ypi" id="mS7-xu-9T5"/>
                         <outlet property="priorityPopup" destination="N9F-EX-R7h" id="zhE-05-YWN"/>
                         <outlet property="pushButton" destination="yqJ-xy-aq3" id="cji-Y3-Wnl"/>
+                        <outlet property="pushNumField" destination="5z7-7w-NXM" id="dnD-ps-Ywh"/>
                         <outlet property="reconnectButton" destination="xRK-ZJ-F6f" id="xfv-pA-bLQ"/>
                         <outlet property="sanboxCheckBox" destination="EQM-Kh-iBI" id="JWW-aK-Ypq"/>
                         <outlet property="saveTemplateButton" destination="GQj-fK-pqZ" id="HD1-3Z-VYb"/>

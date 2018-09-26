@@ -248,7 +248,13 @@
 
 - (IBAction)push:(NSButton *)sender
 {
-    [self push];
+    NSInteger pushNum = [self.pushNumField.stringValue integerValue];
+    if (pushNum <= 0) {
+        pushNum = 1;
+    }
+    for (int i = 0; i < pushNum; i++) {
+        [self push];
+    }
     [self upPayloadTextIndex];
     [self saveTokenList];
 }
