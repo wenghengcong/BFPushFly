@@ -36,5 +36,7 @@
 
 @property (strong) IBOutlet NSMenu *templateRightMenu;
 
+@property (weak) IBOutlet NSTextFieldCell *pushNumField;
+
 @end
 
