@@ -28,6 +28,9 @@
 		5E6A2DBA214BABDF00D981A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A2DB9214BABDF00D981A2 /* main.m */; };
 		5E6A2DC5214BABDF00D981A2 /* BFPushFlyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A2DC4214BABDF00D981A2 /* BFPushFlyTests.m */; };
 		5E6A2DD0214BABDF00D981A2 /* BFPushFlyUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6A2DCF214BABDF00D981A2 /* BFPushFlyUITests.m */; };
+		5EC00BA4215F911000FD0209 /* mobiledevice in Resources */ = {isa = PBXBuildFile; fileRef = 5EC00BA3215F911000FD0209 /* mobiledevice */; };
+		5EC00BA7215F915300FD0209 /* PRHTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC00BA6215F915300FD0209 /* PRHTask.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5EC00BAA215F9D3100FD0209 /* GCDTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC00BA8215F9D3100FD0209 /* GCDTask.m */; };
 		5EE7DDE22153745C00CC2250 /* NWLCore.c in Sources */ = {isa = PBXBuildFile; fileRef = 5EE7DDE12153745C00CC2250 /* NWLCore.c */; };
 		5EFA4B1921549C630077D353 /* BFConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA4B1821549C630077D353 /* BFConst.m */; };
 /* End PBXBuildFile section */
@@ -97,6 +100,11 @@
 		5E6A2DCB214BABDF00D981A2 /* BFPushFlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BFPushFlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E6A2DCF214BABDF00D981A2 /* BFPushFlyUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BFPushFlyUITests.m; sourceTree = "<group>"; };
 		5E6A2DD1214BABDF00D981A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5EC00BA3215F911000FD0209 /* mobiledevice */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = mobiledevice; sourceTree = "<group>"; };
+		5EC00BA5215F915300FD0209 /* PRHTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PRHTask.h; sourceTree = "<group>"; };
+		5EC00BA6215F915300FD0209 /* PRHTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PRHTask.m; sourceTree = "<group>"; };
+		5EC00BA8215F9D3100FD0209 /* GCDTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDTask.m; sourceTree = "<group>"; };
+		5EC00BA9215F9D3100FD0209 /* GCDTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDTask.h; sourceTree = "<group>"; };
 		5EE7DDE02153745C00CC2250 /* NWLCore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NWLCore.h; sourceTree = "<group>"; };
 		5EE7DDE12153745C00CC2250 /* NWLCore.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = NWLCore.c; sourceTree = "<group>"; };
 		5EFA4B1721549C630077D353 /* BFConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BFConst.h; sourceTree = "<group>"; };
@@ -217,6 +225,7 @@
 		5E6A2DAC214BABDF00D981A2 /* BFPushFly */ = {
 			isa = PBXGroup;
 			children = (
+				5EC00BA2215F856700FD0209 /* IPAInstall */,
 				5E46E0162153421B007DFDBD /* PushKit */,
 				5E0F0C702154788800464EA1 /* Utils */,
 				5E0F0C6F2154787E00464EA1 /* Model */,
@@ -258,6 +267,18 @@
 				5E0FBAC52155C411002B3AA9 /* Localizable.strings */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		5EC00BA2215F856700FD0209 /* IPAInstall */ = {
+			isa = PBXGroup;
+			children = (
+				5EC00BA3215F911000FD0209 /* mobiledevice */,
+				5EC00BA9215F9D3100FD0209 /* GCDTask.h */,
+				5EC00BA8215F9D3100FD0209 /* GCDTask.m */,
+				5EC00BA5215F915300FD0209 /* PRHTask.h */,
+				5EC00BA6215F915300FD0209 /* PRHTask.m */,
+			);
+			path = IPAInstall;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +396,7 @@
 				5E0FBAC32155C411002B3AA9 /* Localizable.strings in Resources */,
 				5E6A2DB4214BABDF00D981A2 /* Assets.xcassets in Resources */,
 				5E6A2DB7214BABDF00D981A2 /* Main.storyboard in Resources */,
+				5EC00BA4215F911000FD0209 /* mobiledevice in Resources */,
 				5E0FBAB121553536002B3AA9 /* defaultTemplate.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,8 +423,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E0F0C6C2153A57200464EA1 /* BFEditTemplateController.m in Sources */,
+				5EC00BA7215F915300FD0209 /* PRHTask.m in Sources */,
 				5E46E0282153421B007DFDBD /* NWPusher.m in Sources */,
 				5EE7DDE22153745C00CC2250 /* NWLCore.c in Sources */,
+				5EC00BAA215F9D3100FD0209 /* GCDTask.m in Sources */,
 				5EFA4B1921549C630077D353 /* BFConst.m in Sources */,
 				5E46E02A2153421B007DFDBD /* NWNotification.m in Sources */,
 				5E46E0252153421B007DFDBD /* NWSecTools.m in Sources */,
