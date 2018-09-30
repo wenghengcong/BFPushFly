@@ -19,6 +19,7 @@ typedef NS_ENUM(NSUInteger, BFTemplateEditState) {
 
 #define BFTemplateFileUpdateSuccessful                @"BFTemplateFileUpdateSuccessful"
 #define BFTemplateFileUpdateFial                       @"BFTemplateFileUpdateSuccessful"
+#define BFTemplateEditDone                             @"BFTemplateEditDone"
 
 #pragma mark - save key
 

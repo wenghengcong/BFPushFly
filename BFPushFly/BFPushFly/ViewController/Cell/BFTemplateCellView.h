@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "BFTemplateModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak) IBOutlet NSTextField *nameLabel;
 @property (weak) IBOutlet NSTextField *descLabel;
+@property (weak) IBOutlet NSTextField *IDLabel;
+
+- (void)setWithModel:(BFTemplateModel *)model;
 
 @end
 

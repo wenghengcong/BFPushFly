@@ -31,6 +31,11 @@ typedef NS_ENUM(NSUInteger, BFTemplateModelCreator) {
 
 @property (nonatomic, assign) NSUInteger             version;
 
+/**
+ 模板id
+ */
+@property (nonatomic, assign) NSUInteger             iden;
+
 @property (nonatomic, assign) BFTemplateModelCreator     creator;
 
 + (BFTemplateModel *)modelWithDic: (NSDictionary *)dic;

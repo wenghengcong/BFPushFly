@@ -5,7 +5,7 @@
 	<key>creator</key>
 	<integer>1</integer>
 	<key>version</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>created_time</key>
 	<integer>1537539309589</integer>
 	<key>description</key>
@@ -16,5 +16,7 @@
 	<string>默认模板</string>
 	<key>updated_time</key>
 	<integer>1537539309589</integer>
+	<key>id</key>
+	<integer>0</integer>
 </dict>
 </plist>

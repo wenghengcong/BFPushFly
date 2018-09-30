@@ -23,7 +23,7 @@ static NSString *templateDirectoryPathComponet = @"template";
     dispatch_once(&onceToken, ^{
         shared = [[self alloc] init];
     });
-    return self;
+    return shared;
 }
 
 - (instancetype)init
@@ -40,16 +40,36 @@ static NSString *templateDirectoryPathComponet = @"template";
     NSFileManager *fileM = [NSFileManager defaultManager];
     NSString * defaultTemplatePath = [[NSBundle mainBundle] pathForResource:@"defaultTemplate" ofType:@"plist"];
     NSString * desPath = [[self templateDirectoryPath] stringByAppendingPathComponent:@"defaultTemplate_beefun_luci.plist"];
-    if ([fileM fileExistsAtPath:desPath]) {
-        return;
+  
+    BOOL copyNewTemplage = NO;
+    BOOL existFile = [fileM fileExistsAtPath:desPath];
+    if (existFile) {
+        
+        NSDictionary *oldTempDic = [self templateDataFormPath:desPath];
+        NSInteger oldTempVersion = [oldTempDic[@"version"] integerValue];
+        
+        NSDictionary *newTempDic = [self templateDataFormPath:defaultTemplatePath];
+        NSInteger newTempVersion = [newTempDic[@"version"] integerValue];
+        
+        if (newTempVersion > oldTempVersion) {
+            copyNewTemplage = YES;
+        }
+    } else {
+        copyNewTemplage = YES;
     }
 
-    NSError *error;
-    if(![fileM copyItemAtPath:defaultTemplatePath toPath:desPath error:&error]) {
-        // handle the error
-        NSLog(@"Error creating the database: %@", [error description]);
-    } else {
-        [self postNotification:YES];
+    if (copyNewTemplage) {
+        NSError *error;
+        if (existFile) {
+            [fileM removeItemAtPath:desPath error:&error];
+            NSLog(@"Error remove template file: %@", [error description]);
+        }
+        if(![fileM copyItemAtPath:defaultTemplatePath toPath:desPath error:&error]) {
+            // handle the error
+            NSLog(@"Error copy new template file: %@", [error description]);
+        } else {
+            [self postNotification:YES];
+        }
     }
 }
 
@@ -115,6 +135,7 @@ static NSString *templateDirectoryPathComponet = @"template";
     [saveDic setObject:model.title forKey:@"title"];
     [saveDic setObject:model.desc forKey:@"description"];
     
+    [saveDic setObject:@(model.iden) forKey:@"id"];
     [saveDic setObject:@(model.version) forKey:@"vserion"];
     [saveDic setObject:@(model.creator) forKey:@"creator"];
     if (model.createdTime >= 0.01) {
@@ -190,5 +211,17 @@ static NSString *templateDirectoryPathComponet = @"template";
     }
 }
 
+#pragma mark - Get Dictionary from path
+
++ (NSDictionary *)templateDataFormPath:(NSString *)path
+{
+    if (path == nil || [path length] == 0) return nil;
+    NSFileManager *fileM = [NSFileManager defaultManager];
+    if (![fileM fileExistsAtPath:path]) return nil;
+    NSError *error = nil;
+    NSMutableDictionary *tempDic = [[NSMutableDictionary alloc] initWithContentsOfFile: path];
+    if (error) return nil;
+    return tempDic;
+}
 
 @end

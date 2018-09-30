@@ -86,6 +86,7 @@
 - (void)observeTemplateDocumentFileChange
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTemplateFiles) name:BFTemplateFileUpdateSuccessful object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loadTemplateFiles) name:BFTemplateEditDone object:nil];
 }
 
 #pragma mark - Action
@@ -100,7 +101,43 @@
     if ([_selctedTemplate isDefautlTemplate]) {
         [self showCantEditDefaultTip];
     } else {
-        [BFTemplateFileManager updateTemplate:_selctedTemplate];
+        if ( [BFTemplateFileManager updateTemplate:_selctedTemplate] )
+        {
+            [self loadTemplateFiles];
+        }
+    }
+}
+
+- (IBAction)sortTemplates:(id)sender {
+    NSPopUpButton *pop = (NSPopUpButton *)sender;
+    NSInteger tag = pop.selectedItem.tag;
+    
+    NSString *sortKey = @"iden";
+    BOOL ascending = YES;
+    switch (tag) {
+        case 0:
+            sortKey = @"iden";
+            ascending = YES;
+            break;
+        case 1:
+            sortKey = @"title";
+            ascending = YES;
+            break;
+        case 2:
+            sortKey = @"createdTime";
+            ascending = NO;
+            break;
+        case 3:
+            sortKey = @"updatedTime";
+            ascending = NO;
+            break;
+        default:
+            break;
+    }
+    if (_templateFiles && _templateFiles.count > 0) {
+        NSSortDescriptor *sortDesc = [NSSortDescriptor sortDescriptorWithKey:sortKey ascending:ascending];
+        _templateFiles = [_templateFiles sortedArrayUsingDescriptors:@[sortDesc]];
+        [self.templateTableView reloadData];
     }
 }
 
@@ -116,14 +153,22 @@
 - (IBAction)copyTemplate:(id)sender {
     NSInteger row = [_templateTableView clickedRow];
     if (row == -1) return;
-    BFTemplateModel *model = [_templateFiles objectAtIndex:row];
-    if ([model isDefautlTemplate]) {
-        model.creator = BFTemplateModelCreatorUser;
+    BFTemplateModel *oriModel = [_templateFiles objectAtIndex:row];
+    
+    BFTemplateModel *newModel = [oriModel copy];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.iden == %@",[_templateFiles valueForKeyPath:@"@max.iden"]];
+    NSArray *filteredArray = [_templateFiles filteredArrayUsingPredicate:predicate];
+    if(filteredArray.count > 0) {
+        BFTemplateModel *maxIdenModel = [filteredArray objectAtIndex:0];
+        newModel.iden = maxIdenModel.iden + 1;
+    }
+    if ([newModel isDefautlTemplate]) {
+        newModel.creator = BFTemplateModelCreatorUser;
     } else {
     }
-    NSString *copyTitle = [NSString stringWithFormat:@"%@-copy", model.title];
-    model.title = copyTitle;
-    [BFTemplateFileManager copyTemplate:model];
+    NSString *copyTitle = [NSString stringWithFormat:@"%@-copy", oriModel.title];
+    newModel.title = copyTitle;
+    [BFTemplateFileManager copyTemplate:newModel];
 }
 
 - (IBAction)editTemplateFile:(id)sender {
@@ -161,6 +206,16 @@
 
 - (void)didSelectedLastRow
 {
+    
+    __block NSUInteger lastSelectedRow = 0;
+    [_templateFiles enumerateObjectsUsingBlock:^(BFTemplateModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isEqual:_selctedTemplate]) {
+            lastSelectedRow = idx;
+            *stop = YES;
+        }
+    }];
+    _selecteRow = lastSelectedRow;
+    
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:_selecteRow];
     [_templateTableView selectRowIndexes:indexSet byExtendingSelection:NO];
     if (_selecteRow >= 0 && _selecteRow < _templateFiles.count) {
@@ -173,7 +228,7 @@
 - (void)loadTemplateFiles
 {
     _templateFiles = [BFTemplateFileManager templates];
-    [_templateTableView reloadData];
+    [self sortTemplates:nil];
     [self didSelectedLastRow];
 }
 
@@ -184,7 +239,7 @@
         editVC.editState = _editState;
         
         if (_editState == BFTemplateEditStateEdited) {
-            editVC.templateModel = _editTemplate;
+            editVC.templateModel = [_editTemplate copy];
         }
     }
 }
@@ -199,7 +254,6 @@
 - (void)didSelectedTableViewRow
 {
     _selecteRow = _templateTableView.selectedRow;
-    
     if (_selecteRow >= 0 && _selecteRow < _templateFiles.count) {
         _selctedTemplate = [_templateFiles objectAtIndex:_selecteRow];
         [[_payloadField textStorage] setAttributedString:_selctedTemplate.payloadAttributedString];
@@ -221,8 +275,7 @@
     if (row < [_templateFiles count]) {
         BFTemplateModel *model = [_templateFiles objectAtIndex:row];
         if (cell != nil) {
-            cell.nameLabel.stringValue = model.title;
-            cell.descLabel.stringValue = model.desc;
+            [cell setWithModel:model];
         }
     }
     return cell;

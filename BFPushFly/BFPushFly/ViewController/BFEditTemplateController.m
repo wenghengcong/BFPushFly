@@ -36,13 +36,14 @@
         _orignalTemplateModel = [_templateModel copy];
         _titleTextField.stringValue = _templateModel.title;
         _descTextField.stringValue = _templateModel.desc;
+        _idenTextField.stringValue = [NSString stringWithFormat:@"%lu",  _templateModel.iden];
         [[_payloadTextField textStorage] setAttributedString:_templateModel.payloadAttributedString];
     }
 }
 
 
 - (IBAction)dismissPage:(id)sender {
-    [self dismissViewController:self];
+    [self dismissEditPage];
 }
 
 - (IBAction)saveTemplate:(id)sender {
@@ -58,6 +59,7 @@
 
     _templateModel.title = _titleTextField.stringValue;
     _templateModel.desc = _descTextField.stringValue;
+    _templateModel.iden = [_idenTextField.stringValue integerValue];
     
     _templateModel.creator = BFTemplateModelCreatorUser;
     _templateModel.version = 1;
@@ -86,13 +88,19 @@
                 [BFTemplateFileManager deleteTemplate:_orignalTemplateModel];
             }
         }
-        [self dismissViewController:self];
+        [self dismissEditPage];
     } else {
         NSLog(@"保存失败");
         [BFAlert showAlertInWindow:self.view.window message:NSLocalizedString(@"Save failure", nil) info:NSLocalizedString(@"File system error,Please try aggin", nil) style:NSWarningAlertStyle completionHandler:^(NSModalResponse returnCode) {
             
         }];
     }
+}
+
+- (void)dismissEditPage
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:BFTemplateEditDone object:nil];
+    [self dismissViewController:self];
 }
 
 #pragma mark - Utils

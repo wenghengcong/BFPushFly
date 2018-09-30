@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak) IBOutlet NSTextField *descTextField;
 
+@property (weak) IBOutlet NSTextField *idenTextField;
+
+
 @property (unsafe_unretained) IBOutlet NSTextView *payloadTextField;
 
 @property (weak) IBOutlet NSTextField *countLabel;
